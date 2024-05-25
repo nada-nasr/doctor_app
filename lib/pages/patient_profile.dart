@@ -70,6 +70,33 @@ class _HistState extends State<patient_profile> {
     final LinearGradient gradientColors =
         LinearGradient(colors: color, stops: stops);
 
+    final List test1 = [
+    {"Test details": "PEMO", "Result": 16.3},
+    {"Test details": "PCV", "Result": 16.3},
+    {"Test details": "WBC", "Result": 16.3},
+    {"Test details": "BP", "Result": 16.3},
+    {"Test details": "BGR", "Result": 16.3},
+    {"Test details": "BU", "Result": 16.3},
+    {"Test details": "SC", "Result": 16.3},
+    {"Test details": "SOD", "Result": 16.3},
+    {"Test details": "SG", "Result": 16.3},
+    {"Test details": "AL", "Result": 16.3},
+    {"Test details": "SU", "Result": 16.3},
+  ];
+    final List test2 = [
+    {"Test details": "POT", "Result": "Normal"},
+    {"Test details": "RBC", "Result": "Abnormal"},
+    {"Test details": "PC", "Result": "Normal"},
+    {"Test details": "PCC", "Result": "Normal"},
+    {"Test details": "PA", "Result": "Normal"},
+    {"Test details": "HTN", "Result": "Normal"},
+    {"Test details": "DM", "Result": "Normal"},
+    {"Test details": "CAD", "Result": "Normal"},
+    {"Test details": "PE", "Result": "Normal"},
+    {"Test details": "ANE", "Result": "Normal"},
+    {"Test details": "APPET", "Result": "Normal"},
+  ];
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(241, 246, 252, 1),
       appBar: AppBar(
@@ -87,7 +114,6 @@ class _HistState extends State<patient_profile> {
             child: buildGenerateReportButton(context),
           )
         ],
-        iconTheme: const IconThemeData(color: Color(0xff0C8A7D), size: 30),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
@@ -529,13 +555,15 @@ class _HistState extends State<patient_profile> {
                                                         ChartData(
                                                             'ML ',
                                                             800,
-                                                            const Color.fromARGB(255,
+                                                            const Color
+                                                                .fromARGB(255,
                                                                 158, 202, 237),
                                                             'ML'),
                                                         ChartData(
                                                             'Mins ',
                                                             7200,
-                                                            const Color.fromARGB(219,
+                                                            const Color
+                                                                .fromARGB(219,
                                                                 255, 138, 194),
                                                             'Mins'),
                                                         ChartData(
@@ -587,16 +615,337 @@ class _HistState extends State<patient_profile> {
                                     children: [
                                       TextButton(
                                           onPressed: () {
-                                            // Navigator.of(context).push(MaterialPageRoute(
-                                            // builder: (context) => const LabTest()));
+                                            showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return ListView(
+                                                    children: [
+                                                      AlertDialog(
+                                                          title: Container(
+                                                            child: Row(
+                                                              children: [
+                                                                Column(
+                                                                  children: [
+                                                                    Image.asset(
+                                                                      "images/Group.png",
+                                                                      width:
+                                                                          110,
+                                                                      height:
+                                                                          110,
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                                Container(
+                                                                  margin: const EdgeInsets
+                                                                      .symmetric(
+                                                                      horizontal:
+                                                                          20),
+                                                                  child:
+                                                                      const Column(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      SharedColorTextCADBold(
+                                                                          text:
+                                                                              "Olivia Connor",
+                                                                          fontSize:
+                                                                              30),
+                                                                      SharedColorTextblack(
+                                                                          text:
+                                                                              "15 feb 1965",
+                                                                          fontSize:
+                                                                              24)
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  height: 110,
+                                                                  margin:
+                                                                      const EdgeInsets
+                                                                          .only(
+                                                                          left:
+                                                                              450),
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .topRight,
+                                                                  child: IconButton(
+                                                                      onPressed: () {
+                                                                        Navigator.of(context)
+                                                                            .pop();
+                                                                      },
+                                                                      icon: const Icon(
+                                                                        Icons
+                                                                            .close,
+                                                                        color: Color(
+                                                                            0xff0C8A7D),
+                                                                        size:
+                                                                            35,
+                                                                      )),
+                                                                )
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          content:
+                                                              SingleChildScrollView(
+                                                            scrollDirection:
+                                                                Axis.horizontal,
+                                                            child: Container(
+                                                              child: Row(
+                                                                children: [
+                                                                  Container(
+                                                                    child: Column(
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.center,
+                                                                        children: [
+                                                                          Container(
+                                                                            margin: const EdgeInsets.only(
+                                                                                left: 30,
+                                                                                right: 30,
+                                                                                bottom: 5,
+                                                                                top: 5),
+                                                                            width:
+                                                                                350,
+                                                                            height:
+                                                                                70,
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            decoration:
+                                                                                BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white, boxShadow: [
+                                                                              BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 5, blurRadius: 7, offset: const Offset(0, 3))
+                                                                            ]),
+                                                                            child:
+                                                                                const SharedColorTextCADBold(text: "Lab Tests", fontSize: 30),
+                                                                          ),
+                                                                          Stack(
+                                                                            alignment:
+                                                                                Alignment.bottomRight,
+                                                                            children: [
+                                                                              Container(
+                                                                                  height: 500,
+                                                                                  width: 300,
+                                                                                  child: SingleChildScrollView(
+                                                                                    scrollDirection: Axis.vertical,
+                                                                                    child: Container(
+                                                                                        // height: 400,
+                                                                                        child: Column(
+                                                                                      children: [
+                                                                                        testDatial(context),
+                                                                                        testDatial(context),
+                                                                                        testDatial(context),
+                                                                                      ],
+                                                                                    )),
+                                                                                  )),
+                                                                              IconButton(
+                                                                                color: const Color(0xff0C8A7D),
+                                                                                // color: Color.fromARGB(255, 254, 255, 255),
+
+                                                                                onPressed: () {
+                                                                                  // add test page
+                                                                                },
+                                                                                icon: const Icon(Icons.add_circle),
+                                                                                iconSize: 80,
+                                                                              )
+                                                                            ],
+                                                                          )
+                                                                        ]),
+                                                                  ),
+                                                                  Column(
+                                                                      // crossAxisAlignment: CrossAxisAlignment.start,
+                                                                      children: [
+                                                                        Container(
+                                                                          margin: const EdgeInsets
+                                                                              .only(
+                                                                              left: 30,
+                                                                              right: 30,
+                                                                              bottom: 5,
+                                                                              top: 5),
+                                                                          width:
+                                                                              350,
+                                                                          height:
+                                                                              70,
+                                                                          alignment:
+                                                                              Alignment.center,
+                                                                          decoration: BoxDecoration(
+                                                                              borderRadius: BorderRadius.circular(10),
+                                                                              color: Colors.white,
+                                                                              boxShadow: [
+                                                                                BoxShadow(color: Colors.grey.withOpacity(0.5), spreadRadius: 5, blurRadius: 7, offset: const Offset(0, 3))
+                                                                              ]),
+                                                                          child: const SharedColorTextCADBold(
+                                                                              text: "Scan",
+                                                                              fontSize: 30),
+                                                                        ),
+                                                                        Stack(
+                                                                          alignment:
+                                                                              Alignment.bottomRight,
+                                                                          children: [
+                                                                            Container(
+                                                                                height: 500,
+                                                                                width: 300,
+                                                                                child: SingleChildScrollView(
+                                                                                  scrollDirection: Axis.vertical,
+                                                                                  child: Container(
+                                                                                      // height: 400,
+                                                                                      child: Column(
+                                                                                    children: [
+                                                                                      ScanDatial(context),
+                                                                                      ScanDatial(context),
+                                                                                      ScanDatial(context),
+                                                                                      ScanDatial(context),
+                                                                                      ScanDatial(context),
+                                                                                      ScanDatial(context),
+                                                                                    ],
+                                                                                  )),
+                                                                                )),
+                                                                            IconButton(
+                                                                              color: const Color(0xff0C8A7D),
+                                                                              // color: Color.fromARGB(255, 254, 255, 255),
+
+                                                                              onPressed: () {
+                                                                                showDialog(
+                                                                                    barrierDismissible: false,
+                                                                                    context: context,
+                                                                                    builder: (context) {
+                                                                                      return ListView(
+                                                                                        children: [
+                                                                                          AlertDialog(
+                                                                                              title: Container(
+                                                                                                alignment: Alignment.centerRight,
+                                                                                                child: IconButton(
+                                                                                                    onPressed: () {
+                                                                                                      Navigator.of(context).pop();
+                                                                                                    },
+                                                                                                    icon: const Icon(Icons.close_rounded)),
+                                                                                              ),
+                                                                                              content: Container(
+                                                                                                // height: 300,
+                                                                                                child: SingleChildScrollView(
+                                                                                                  scrollDirection: Axis.horizontal,
+                                                                                                  child: Column(
+                                                                                                    children: [
+                                                                                                      Container(
+                                                                                                          margin: const EdgeInsets.all(10),
+                                                                                                          child: Row(
+                                                                                                            children: [
+                                                                                                              Container(
+                                                                                                                width: 200,
+                                                                                                                height: 60,
+                                                                                                                margin: const EdgeInsets.only(right: 8),
+                                                                                                                alignment: Alignment.center,
+                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                child: const SharedColorTextCADnormal(text: "Patient name", fontSize: 26),
+                                                                                                              ),
+                                                                                                              Container(
+                                                                                                                width: 300,
+                                                                                                                height: 60,
+                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                // child: Text("data"),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                          )),
+                                                                                                      Container(
+                                                                                                          margin: const EdgeInsets.all(10),
+                                                                                                          child: Row(
+                                                                                                            children: [
+                                                                                                              Container(
+                                                                                                                width: 200,
+                                                                                                                height: 60,
+                                                                                                                margin: const EdgeInsets.only(right: 8),
+                                                                                                                alignment: Alignment.center,
+                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                child: const SharedColorTextCADnormal(text: "Doctor name", fontSize: 26),
+                                                                                                              ),
+                                                                                                              Container(
+                                                                                                                width: 300,
+                                                                                                                height: 60,
+                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                // child: Text("data"),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                          )),
+                                                                                                      Container(
+                                                                                                          margin: const EdgeInsets.all(10),
+                                                                                                          child: Row(
+                                                                                                            children: [
+                                                                                                              Container(
+                                                                                                                width: 200,
+                                                                                                                height: 60,
+                                                                                                                margin: const EdgeInsets.only(right: 8),
+                                                                                                                alignment: Alignment.center,
+                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                child: const SharedColorTextCADnormal(text: "Assistant name", fontSize: 26),
+                                                                                                              ),
+                                                                                                              Container(
+                                                                                                                width: 300,
+                                                                                                                height: 60,
+                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                // child: Text("data"),
+                                                                                                              )
+                                                                                                            ],
+                                                                                                          )),
+                                                                                                      Container(
+                                                                                                        height: 280,
+                                                                                                        width: 550,
+                                                                                                        margin: const EdgeInsets.only(bottom: 5),
+                                                                                                        child: MaterialButton(
+                                                                                                          padding: const EdgeInsets.all(50),
+                                                                                                          onPressed: () {
+                                                                                                            // upload image from pc
+                                                                                                          },
+                                                                                                          child: Column(
+                                                                                                            children: [
+                                                                                                              Image.asset("images/upload (2) 1.png"),
+                                                                                                              const Text(
+                                                                                                                "upload image",
+                                                                                                                style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30),
+                                                                                                              ),
+                                                                                                              const Text(
+                                                                                                                "choose file",
+                                                                                                                style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
+                                                                                                              ),
+                                                                                                            ],
+                                                                                                          ),
+                                                                                                        ),
+                                                                                                      ),
+                                                                                                      MaterialButton(
+                                                                                                        color: const Color(0xff0C8A7D),
+                                                                                                        textColor: Colors.white,
+                                                                                                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                                                                                                        onPressed: () {},
+                                                                                                        child: const Text(
+                                                                                                          "Save",
+                                                                                                          style: TextStyle(fontSize: 26),
+                                                                                                        ),
+                                                                                                      )
+                                                                                                    ],
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ))
+                                                                                        ],
+                                                                                      );
+                                                                                    });
+                                                                              },
+                                                                              icon: const Icon(Icons.add_circle),
+                                                                              iconSize: 80,
+                                                                            )
+                                                                          ],
+                                                                        )
+                                                                      ])
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ))
+                                                    ],
+                                                  );
+                                                });
                                           },
                                           child: const SharedColorTextCADBold(
-                                              text: "Lab Tests", fontSize: 30)),
+                                              text: "Lab", fontSize: 36)),
                                       Container(
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 10),
-                                        margin:
-                                            const EdgeInsets.only(bottom: 10),
+                                        margin: const EdgeInsets.only(top: 10),
                                         height: 110,
                                         width: 420,
                                         decoration: BoxDecoration(
@@ -608,7 +957,7 @@ class _HistState extends State<patient_profile> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             const SharedColorTextCADnormal(
-                                                text: "Analysis", fontSize: 26),
+                                                text: "Lab Test", fontSize: 26),
                                             Row(
                                               children: [
                                                 Container(
@@ -617,7 +966,9 @@ class _HistState extends State<patient_profile> {
                                                     height: 50,
                                                     width: 300,
                                                     child: MaterialButton(
-                                                      onPressed: () {},
+                                                      onPressed: () {
+                                                        // view test pop up
+                                                      },
                                                       child:
                                                           const SharedColorTextWhite(
                                                         text: "2 feb 2023",
@@ -627,14 +978,17 @@ class _HistState extends State<patient_profile> {
                                                 Container(
                                                     height: 40,
                                                     width: 80,
-                                                    margin: const EdgeInsets.only(
-                                                        top: 20),
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            top: 20),
                                                     child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(100),
                                                         child: MaterialButton(
-                                                          onPressed: () {},
+                                                          onPressed: () {
+                                                            // add test
+                                                          },
                                                           child: Row(
                                                             children: [
                                                               Image.asset(
@@ -650,266 +1004,11 @@ class _HistState extends State<patient_profile> {
                                           ],
                                         ),
                                       ),
-                                      TextButton(
-                                          onPressed: () {
-                                            showDialog(
-                                                context: context,
-                                                builder: (context) {
-                                                  return ListView(
-                                                    children: [
-                                                      AlertDialog(
-                                                          content:
-                                                              SingleChildScrollView(
-                                                        scrollDirection:
-                                                            Axis.horizontal,
-                                                        child: Container(
-                                                          child: Row(
-                                                            children: [
-                                                              Container(
-                                                                child: Column(
-                                                                    children: [
-                                                                      Container(
-                                                                        margin: const EdgeInsets
-                                                                            .only(
-                                                                            left:
-                                                                                15,
-                                                                            right:
-                                                                                15,
-                                                                            bottom:
-                                                                                10),
-                                                                        child: Material(
-                                                                            elevation: 3,
-                                                                            color: const Color.fromARGB(255, 255, 255, 255),
-                                                                            shadowColor: const Color.fromARGB(255, 0, 0, 0),
-                                                                            borderRadius: BorderRadius.circular(10),
-                                                                            child: Container(
-                                                                              padding: const EdgeInsets.only(top: 15),
-                                                                              height: 220,
-                                                                              width: 300,
-                                                                              child: Center(
-                                                                                child: Column(
-                                                                                  children: [
-                                                                                    Image.asset(
-                                                                                      "images/Group.png",
-                                                                                      width: 110,
-                                                                                      height: 110,
-                                                                                    ),
-                                                                                    const SharedColorTextCADBold(text: "Olivia Connor", fontSize: 30),
-                                                                                    const SharedColorTextCADnormal(text: "ID 1234556", fontSize: 20)
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                            )),
-                                                                      ),
-                                                                      Stack(
-                                                                        alignment:
-                                                                            Alignment.bottomRight,
-                                                                        children: [
-                                                                          Container(
-                                                                              height: MediaQuery.sizeOf(context).height / 1.8,
-                                                                              width: 300,
-                                                                              child: SingleChildScrollView(
-                                                                                scrollDirection: Axis.vertical,
-                                                                                child: Container(
-                                                                                    // height: 400,
-                                                                                    child: Column(
-                                                                                  children: [
-                                                                                    MaterialButton(onPressed: () {}, child: ScanDatial(context)),
-                                                                                    ScanDatial(context),
-                                                                                    ScanDatial(context),
-                                                                                    ScanDatial(context),
-                                                                                    ScanDatial(context),
-                                                                                    ScanDatial(context),
-                                                                                  ],
-                                                                                )),
-                                                                              )),
-                                                                          IconButton(
-                                                                            color:
-                                                                                const Color(0xff0C8A7D),
-                                                                            // color: Color.fromARGB(255, 254, 255, 255),
-
-                                                                            onPressed:
-                                                                                () {
-                                                                              showDialog(
-                                                                                  barrierDismissible: false,
-                                                                                  context: context,
-                                                                                  builder: (context) {
-                                                                                    return ListView(
-                                                                                      children: [
-                                                                                        AlertDialog(
-                                                                                            title: Container(
-                                                                                              alignment: Alignment.centerRight,
-                                                                                              child: IconButton(
-                                                                                                  onPressed: () {
-                                                                                                    Navigator.of(context).pop();
-                                                                                                  },
-                                                                                                  icon: const Icon(Icons.close_rounded)),
-                                                                                            ),
-                                                                                            content: Container(
-                                                                                              // height: 300,
-                                                                                              child: SingleChildScrollView(
-                                                                                                scrollDirection: Axis.horizontal,
-                                                                                                child: Column(
-                                                                                                  children: [
-                                                                                                    Container(
-                                                                                                        margin: const EdgeInsets.all(10),
-                                                                                                        child: Row(
-                                                                                                          children: [
-                                                                                                            Container(
-                                                                                                              width: 200,
-                                                                                                              height: 60,
-                                                                                                              margin: const EdgeInsets.only(right: 8),
-                                                                                                              alignment: Alignment.center,
-                                                                                                              decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                              child: const SharedColorTextCADnormal(text: "Patient name", fontSize: 26),
-                                                                                                            ),
-                                                                                                            Container(
-                                                                                                              width: 300,
-                                                                                                              height: 60,
-                                                                                                              decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                              // child: Text("data"),
-                                                                                                            )
-                                                                                                          ],
-                                                                                                        )),
-                                                                                                    Container(
-                                                                                                        margin: const EdgeInsets.all(10),
-                                                                                                        child: Row(
-                                                                                                          children: [
-                                                                                                            Container(
-                                                                                                              width: 200,
-                                                                                                              height: 60,
-                                                                                                              margin: const EdgeInsets.only(right: 8),
-                                                                                                              alignment: Alignment.center,
-                                                                                                              decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                              child: const SharedColorTextCADnormal(text: "Doctor name", fontSize: 26),
-                                                                                                            ),
-                                                                                                            Container(
-                                                                                                              width: 300,
-                                                                                                              height: 60,
-                                                                                                              decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                              // child: Text("data"),
-                                                                                                            )
-                                                                                                          ],
-                                                                                                        )),
-                                                                                                    Container(
-                                                                                                        margin: const EdgeInsets.all(10),
-                                                                                                        child: Row(
-                                                                                                          children: [
-                                                                                                            Container(
-                                                                                                              width: 200,
-                                                                                                              height: 60,
-                                                                                                              margin: const EdgeInsets.only(right: 8),
-                                                                                                              alignment: Alignment.center,
-                                                                                                              decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                              child: const SharedColorTextCADnormal(text: "Assistant name", fontSize: 26),
-                                                                                                            ),
-                                                                                                            Container(
-                                                                                                              width: 300,
-                                                                                                              height: 60,
-                                                                                                              decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                              // child: Text("data"),
-                                                                                                            )
-                                                                                                          ],
-                                                                                                        )),
-                                                                                                    Container(
-                                                                                                      height: 280,
-                                                                                                      width: 550,
-                                                                                                      margin: const EdgeInsets.only(bottom: 5),
-                                                                                                      child: MaterialButton(
-                                                                                                        padding: const EdgeInsets.all(50),
-                                                                                                        onPressed: () {
-                                                                                                          // upload image from pc
-                                                                                                        },
-                                                                                                        child: Column(
-                                                                                                          children: [
-                                                                                                            Image.asset("images/upload (2) 1.png"),
-                                                                                                            const Text(
-                                                                                                              "upload image",
-                                                                                                              style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30),
-                                                                                                            ),
-                                                                                                            const Text(
-                                                                                                              "choose file",
-                                                                                                              style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
-                                                                                                            ),
-                                                                                                          ],
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    MaterialButton(
-                                                                                                      color: const Color(0xff0C8A7D),
-                                                                                                      textColor: Colors.white,
-                                                                                                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                                                                                                      onPressed: () {},
-                                                                                                      child: const Text(
-                                                                                                        "Save",
-                                                                                                        style: TextStyle(fontSize: 26),
-                                                                                                      ),
-                                                                                                    )
-                                                                                                  ],
-                                                                                                ),
-                                                                                              ),
-                                                                                            ))
-                                                                                      ],
-                                                                                    );
-                                                                                  });
-                                                                            },
-                                                                            icon:
-                                                                                const Icon(Icons.add_circle),
-                                                                            iconSize:
-                                                                                80,
-                                                                          )
-                                                                        ],
-                                                                      )
-                                                                    ]),
-                                                              ),
-                                                              Column(
-                                                                children: [
-                                                                  Stack(
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .topRight,
-                                                                    children: [
-                                                                      Container(
-                                                                          width: MediaQuery.sizeOf(context)
-                                                                              .height,
-                                                                          height: MediaQuery.sizeOf(context).height /
-                                                                              1.13,
-                                                                          color: const Color(
-                                                                              0xffF1F6FC),
-                                                                          child:
-                                                                              Image.asset("images/Gymnastics Skin Type 1.png")),
-                                                                      IconButton(
-                                                                          onPressed:
-                                                                              () {
-                                                                            Navigator.of(context).pop();
-                                                                          },
-                                                                          icon:
-                                                                              const Icon(
-                                                                            Icons.close,
-                                                                            color:
-                                                                                Color(0xff0C8A7D),
-                                                                            size:
-                                                                                35,
-                                                                          )),
-                                                                    ],
-                                                                  )
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ))
-                                                    ],
-                                                  );
-                                                });
-                                          },
-                                          child: const SharedColorTextCADBold(
-                                              text: "Scan", fontSize: 30)),
                                       Container(
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 10),
-                                        margin:
-                                            const EdgeInsets.only(bottom: 10),
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 20),
                                         height: 110,
                                         width: 420,
                                         decoration: BoxDecoration(
@@ -921,7 +1020,7 @@ class _HistState extends State<patient_profile> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             const SharedColorTextCADnormal(
-                                                text: "X-rays", fontSize: 26),
+                                                text: "Scan", fontSize: 26),
                                             Row(
                                               children: [
                                                 Container(
@@ -931,46 +1030,214 @@ class _HistState extends State<patient_profile> {
                                                     width: 300,
                                                     child: MaterialButton(
                                                       onPressed: () {
+                                                        // scan pop up in scan page
                                                         showDialog(
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return Container(
-                                                                alignment: Alignment.center,
-                                                                padding: const EdgeInsets.all(20),
-                                                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                                                                child: Stack(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .topRight,
-                                                                  children: [
-                                                                    Container(
-                                                                        width: MediaQuery.sizeOf(context)
-                                                                            .height,
-                                                                        height: MediaQuery.sizeOf(context).height /
-                                                                            1.13,
-                                                                        color: const Color(
-                                                                            0xffF1F6FC),
-                                                                        child: Image.asset(
-                                                                            "images/Gymnastics Skin Type 1.png")),
-                                                                    IconButton(
-                                                                        onPressed:
-                                                                            () {
-                                                                          Navigator.of(context)
-                                                                              .pop();
-                                                                        },
-                                                                        icon:
-                                                                            const Icon(
-                                                                          Icons
-                                                                              .close,
-                                                                          color:
-                                                                              Color(0xff0C8A7D),
-                                                                          size:
-                                                                              35,
-                                                                        )),
-                                                                  ],
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return AlertDialog(
+                                                              backgroundColor:
+                                                                  const Color(
+                                                                      0xffFFFFFF),
+                                                              content: Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width,
+                                                                child:
+                                                                    SingleChildScrollView(
+                                                                  child: Column(
+                                                                      children: [
+                                                                        Container(
+                                                                          alignment:
+                                                                              Alignment.centerRight,
+                                                                          child: IconButton(
+                                                                              icon: const Icon(Icons.clear),
+                                                                              color: const Color(0xff0C8A7D),
+                                                                              iconSize: 30,
+                                                                              onPressed: () {
+                                                                                Navigator.of(context).pop();
+                                                                              }),
+                                                                        ),
+                                                                        Container(
+                                                                          margin: const EdgeInsets
+                                                                              .all(
+                                                                              10),
+                                                                          child:
+                                                                              SingleChildScrollView(
+                                                                            scrollDirection:
+                                                                                Axis.horizontal,
+                                                                            child:
+                                                                                Row(children: [
+                                                                              //col1
+                                                                              Column(children: [
+                                                                                Row(children: [
+                                                                                  Container(
+                                                                                    width: 180,
+                                                                                    //color: Colors.black,
+                                                                                    child: const Text("Patient name", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                  ),
+                                                                                  const SizedBox(width: 10),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(bottom: 15, top: 14),
+                                                                                    child: Container(
+                                                                                      width: 450,
+                                                                                      height: 44,
+                                                                                      decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                                      padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                                                                                      child: const Text("Mohamed Nasr",
+                                                                                          style: TextStyle(
+                                                                                            color: Color(0xff000000),
+                                                                                            fontSize: 20,
+                                                                                          )),
+                                                                                    ),
+                                                                                  )
+                                                                                ]),
+                                                                                Row(children: [
+                                                                                  Container(
+                                                                                    width: 180,
+                                                                                    //color: Colors.black,
+                                                                                    child: const Text("Patient info", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                  ),
+                                                                                  const SizedBox(width: 10),
+                                                                                  Container(
+                                                                                    width: 450,
+                                                                                    height: 45,
+                                                                                    decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                                    padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                                                                                    child: const Text("Male_30 Years",
+                                                                                        style: TextStyle(
+                                                                                          color: Color(0xff000000),
+                                                                                          fontSize: 20,
+                                                                                        )),
+                                                                                  )
+                                                                                ]),
+                                                                                Row(children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(top: 9),
+                                                                                    child: Container(
+                                                                                      width: 180,
+                                                                                      //color: Colors.black,
+                                                                                      child: const Text("Patient ID", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                    ),
+                                                                                  ),
+                                                                                  const SizedBox(width: 10),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(top: 15),
+                                                                                    child: Container(
+                                                                                      width: 450,
+                                                                                      height: 45,
+                                                                                      decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                                      padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                                                                                      child: const Text("1234556",
+                                                                                          style: TextStyle(
+                                                                                            color: Color(0xff000000),
+                                                                                            fontSize: 20,
+                                                                                          )),
+                                                                                    ),
+                                                                                  )
+                                                                                ]),
+                                                                              ]),
+                                                                              const SizedBox(width: 50),
+                                                                              //col2
+                                                                              Column(children: [
+                                                                                Row(children: [
+                                                                                  Container(
+                                                                                    width: 180,
+                                                                                    //color: Colors.black,
+                                                                                    child: const Text("Doctor name", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                  ),
+                                                                                  const SizedBox(width: 10),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(bottom: 15, top: 14),
+                                                                                    child: Container(
+                                                                                      width: 450,
+                                                                                      height: 44,
+                                                                                      decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                                      padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                                                                                      child: const Text("Nada Nasr",
+                                                                                          style: TextStyle(
+                                                                                            color: Color(0xff000000),
+                                                                                            fontSize: 20,
+                                                                                          )),
+                                                                                    ),
+                                                                                  )
+                                                                                ]),
+                                                                                Row(children: [
+                                                                                  Container(
+                                                                                    width: 180,
+                                                                                    //color: Colors.black,
+                                                                                    child: const Text("Date", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                  ),
+                                                                                  const SizedBox(width: 10),
+                                                                                  Container(
+                                                                                    width: 450,
+                                                                                    height: 45,
+                                                                                    decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                                    padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                                                                                    child: const Text("15/05/2024",
+                                                                                        style: TextStyle(
+                                                                                          color: Color(0xff000000),
+                                                                                          fontSize: 20,
+                                                                                        )),
+                                                                                  )
+                                                                                ]),
+                                                                                Row(children: [
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(top: 9),
+                                                                                    child: Container(
+                                                                                      width: 180,
+                                                                                      //color: Colors.black,
+                                                                                      child: const Text("Class", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                    ),
+                                                                                  ),
+                                                                                  const SizedBox(width: 10),
+                                                                                  Padding(
+                                                                                    padding: const EdgeInsets.only(top: 15),
+                                                                                    child: Container(
+                                                                                      width: 450,
+                                                                                      height: 45,
+                                                                                      decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                                      padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
+                                                                                      child: const Text(".........",
+                                                                                          style: TextStyle(
+                                                                                            color: Color(0xff000000),
+                                                                                            fontSize: 20,
+                                                                                          )),
+                                                                                    ),
+                                                                                  )
+                                                                                ]),
+                                                                              ])
+                                                                            ]),
+                                                                          ),
+                                                                        ),
+                                                                        const SizedBox(
+                                                                            height:
+                                                                                20),
+                                                                        const Divider(
+                                                                            color:
+                                                                                Color(0xff096B61)),
+                                                                        const SizedBox(
+                                                                            height:
+                                                                                20),
+                                                                        Container(
+                                                                          //padding: EdgeInsets.all(20),
+                                                                          width:
+                                                                              990,
+                                                                          height:
+                                                                              600,
+                                                                          decoration:
+                                                                              BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
+                                                                        )
+                                                                      ]),
                                                                 ),
-                                                              );
-                                                            });
+                                                              )),
+                                                            );
+                                                          },
+                                                        );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                       },
                                                       child:
                                                           const SharedColorTextWhite(
@@ -981,8 +1248,9 @@ class _HistState extends State<patient_profile> {
                                                 Container(
                                                     height: 40,
                                                     width: 80,
-                                                    margin: const EdgeInsets.only(
-                                                        top: 20),
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            top: 20),
                                                     child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
@@ -1288,7 +1556,8 @@ class _HistState extends State<patient_profile> {
                                                   overflowMode:
                                                       LegendItemOverflowMode
                                                           .scroll),
-                                              primaryXAxis: const CategoryAxis(),
+                                              primaryXAxis:
+                                                  const CategoryAxis(),
                                               series: <CartesianSeries>[
                                                 SplineSeries<CharttData,
                                                     String>(
@@ -1454,7 +1723,8 @@ class _HistState extends State<patient_profile> {
                                                   overflowMode:
                                                       LegendItemOverflowMode
                                                           .wrap),
-                                              primaryXAxis: const CategoryAxis(),
+                                              primaryXAxis:
+                                                  const CategoryAxis(),
                                               primaryYAxis: const NumericAxis(),
                                               // tooltipBehavior: _tooltip,
                                               series: <CartesianSeries<
@@ -1504,7 +1774,8 @@ class _HistState extends State<patient_profile> {
                                                   overflowMode:
                                                       LegendItemOverflowMode
                                                           .wrap),
-                                              primaryXAxis: const CategoryAxis(),
+                                              primaryXAxis:
+                                                  const CategoryAxis(),
                                               series: <CartesianSeries>[
                                                 // Render column series
                                                 ColumnSeries<_ChartData,
@@ -1923,33 +2194,664 @@ Widget ScanDatial(BuildContext context) {
           ),
         ],
       ),
-      child:
-          // MaterialButton(
-          //   onPressed: () {},
-          //   child:
-          Container(
-        alignment: Alignment.centerLeft,
-        width: 280,
-        height: 110,
-        child: Column(children: [
-          Container(
-            margin: const EdgeInsets.all(25),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SharedColorTextWhite(
-                  text: "2/10/2024",
-                  fontSize: 26,
-                  fontWeight: FontWeight.w500,
-                ),
-                SharedColorTextWhite(
-                  text: "Ahmed elkateeb",
-                  fontSize: 16,
-                )
-              ],
-            ),
-          )
-        ]),
-        // ),
+      child: MaterialButton(
+        onPressed: () {
+          // scan pop up for scan page
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: const Color(0xffFFFFFF),
+                content: Expanded(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: SingleChildScrollView(
+                    child: Column(children: [
+                      Container(
+                        alignment: Alignment.centerRight,
+                        child: IconButton(
+                            icon: const Icon(Icons.clear),
+                            color: const Color(0xff0C8A7D),
+                            iconSize: 30,
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            }),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(children: [
+                            //col1
+                            Column(children: [
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Patient name",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 15, top: 14),
+                                  child: Container(
+                                    width: 450,
+                                    height: 44,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("Mohamed Nasr",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Patient info",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Container(
+                                  width: 450,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          style: BorderStyle.solid,
+                                          color: const Color(0xff096B61))),
+                                  padding: const EdgeInsets.only(
+                                      left: 15, top: 5, bottom: 5),
+                                  child: const Text("Male_30 Years",
+                                      style: TextStyle(
+                                        color: Color(0xff000000),
+                                        fontSize: 20,
+                                      )),
+                                )
+                              ]),
+                              Row(children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 9),
+                                  child: Container(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: const Text("Patient ID",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15),
+                                  child: Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("1234556",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                            ]),
+                            const SizedBox(width: 50),
+                            //col2
+                            Column(children: [
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Doctor name",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 15, top: 14),
+                                  child: Container(
+                                    width: 450,
+                                    height: 44,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("Nada Nasr",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Date",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Container(
+                                  width: 450,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          style: BorderStyle.solid,
+                                          color: const Color(0xff096B61))),
+                                  padding: const EdgeInsets.only(
+                                      left: 15, top: 5, bottom: 5),
+                                  child: const Text("15/05/2024",
+                                      style: TextStyle(
+                                        color: Color(0xff000000),
+                                        fontSize: 20,
+                                      )),
+                                )
+                              ]),
+                              Row(children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 9),
+                                  child: Container(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: const Text("Class",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15),
+                                  child: Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text(".........",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                            ])
+                          ]),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Divider(color: Color(0xff096B61)),
+                      const SizedBox(height: 20),
+                      Container(
+                        //padding: EdgeInsets.all(20),
+                        width: 990,
+                        height: 600,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                style: BorderStyle.solid,
+                                color: const Color(0xff096B61))),
+                      )
+                    ]),
+                  ),
+                )),
+              );
+            },
+          );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        },
+        child: Container(
+          alignment: Alignment.centerLeft,
+          // width: 600,
+          height: 110,
+          child: Column(children: [
+            Container(
+              margin: const EdgeInsets.all(25),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SharedColorTextWhite(
+                    text: "2/10/2024",
+                    fontSize: 26,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  SharedColorTextWhite(
+                    text: "Ahmed elkateeb",
+                    fontSize: 16,
+                  )
+                ],
+              ),
+            )
+          ]),
+        ),
+      ));
+}
+
+Widget testDatial(BuildContext context) {
+  return Container(
+      margin: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        color: const Color(0xff6DB9B1),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(.1),
+            spreadRadius: 1,
+            blurRadius: 3,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
+      child: MaterialButton(
+        onPressed: () {
+          // view test pop up for test page
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                backgroundColor: const Color(0xffFFFFFF),
+                content: Expanded(
+                    child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: SingleChildScrollView(
+                    child: Column(children: [
+                      Container(
+                        alignment: Alignment.centerRight,
+                        child: IconButton(
+                            icon: const Icon(Icons.clear),
+                            color: const Color(0xff0C8A7D),
+                            iconSize: 30,
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            }),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(10),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(children: [
+                            //col1
+                            Column(children: [
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Patient name",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 15, top: 14),
+                                  child: Container(
+                                    width: 450,
+                                    height: 44,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("Mohamed Nasr",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Patient info",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Container(
+                                  width: 450,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          style: BorderStyle.solid,
+                                          color: const Color(0xff096B61))),
+                                  padding: const EdgeInsets.only(
+                                      left: 15, top: 5, bottom: 5),
+                                  child: const Text("Male_30 Years",
+                                      style: TextStyle(
+                                        color: Color(0xff000000),
+                                        fontSize: 20,
+                                      )),
+                                )
+                              ]),
+                              Row(children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 9),
+                                  child: Container(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: const Text("Patient ID",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15),
+                                  child: Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("1234556",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                            ]),
+                            const SizedBox(width: 50),
+                            //col2
+                            Column(children: [
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Doctor name",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 15, top: 14),
+                                  child: Container(
+                                    width: 450,
+                                    height: 44,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("Nada Nasr",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                              Row(children: [
+                                Container(
+                                  width: 180,
+                                  //color: Colors.black,
+                                  child: const Text("Date",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          color: Color(0xff096B61),
+                                          fontWeight: FontWeight.w400)),
+                                ),
+                                const SizedBox(width: 10),
+                                Container(
+                                  width: 450,
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          style: BorderStyle.solid,
+                                          color: const Color(0xff096B61))),
+                                  padding: const EdgeInsets.only(
+                                      left: 15, top: 5, bottom: 5),
+                                  child: const Text("15/05/2024",
+                                      style: TextStyle(
+                                        color: Color(0xff000000),
+                                        fontSize: 20,
+                                      )),
+                                )
+                              ]),
+                              Row(children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 9),
+                                  child: Container(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: const Text("Class",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                ),
+                                const SizedBox(width: 10),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15),
+                                  child: Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text(".........",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  ),
+                                )
+                              ]),
+                            ])
+                          ]),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Divider(color: Color(0xff096B61)),
+                      Container(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(children: [
+                            //col1
+                            Column(children: [
+                              Padding(
+                                padding: const EdgeInsets.all(15),
+                                child: Container(
+                                  width: 500,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          style: BorderStyle.solid,
+                                          color: const Color(0xff096B61))),
+                                  child: const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text("Test details",
+                                            style: TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                        Text("Result",
+                                            style: TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400))
+                                      ]),
+                                ),
+                              ),
+                              ...List.generate(test1.length, (index) {
+                                return Container(
+                                  child: Row(children: [
+                                    Container(
+                                      width: 100,
+                                      child: Text(test1[index]["Test details"],
+                                          style: const TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                    ),
+                                    const SizedBox(width: 70),
+                                    const Text(":",
+                                        style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 32,
+                                            fontWeight: FontWeight.w400)),
+                                    const SizedBox(width: 90),
+                                    Container(
+                                      width: 60,
+                                      child: Text("$index",
+                                          style: const TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                    )
+                                  ]),
+                                );
+                              }),
+                            ]),
+                            const SizedBox(width: 200),
+                            //col2
+                            Column(children: [
+                              Padding(
+                                padding: const EdgeInsets.all(15),
+                                child: Container(
+                                  width: 500,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          style: BorderStyle.solid,
+                                          color: const Color(0xff096B61))),
+                                  child: const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text("Test details",
+                                            style: TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                        Text("Result",
+                                            style: TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400))
+                                      ]),
+                                ),
+                              ),
+                              ...List.generate(test2.length, (index) {
+                                return Container(
+                                  child: Row(children: [
+                                    const SizedBox(width: 100),
+                                    Container(
+                                      width: 100,
+                                      child: Text(test2[index]["Test details"],
+                                          style: const TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                    ),
+                                    const SizedBox(width: 70),
+                                    const Text(":",
+                                        style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 32,
+                                            fontWeight: FontWeight.w400)),
+                                    const SizedBox(width: 90),
+                                    Container(
+                                      width: 200,
+                                      child: Text(test2[index]["Result"],
+                                          style: const TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                    )
+                                  ]),
+                                );
+                              }),
+                            ]),
+                          ]),
+                        ),
+                      )
+                    ]),
+                  ),
+                )),
+              );
+            },
+          );
+        },
+        child: Container(
+          alignment: Alignment.centerLeft,
+          width: 300,
+          height: 110,
+          child: Column(children: [
+            Container(
+              margin: const EdgeInsets.all(25),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SharedColorTextWhite(
+                    text: "2/10/2024",
+                    fontSize: 26,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  SharedColorTextWhite(
+                    text: "Ahmed elkateeb",
+                    fontSize: 16,
+                  )
+                ],
+              ),
+            )
+          ]),
+        ),
       ));
 }
