@@ -1,23 +1,19 @@
-import 'dart:ui';
-import 'package:carousel_slider/carousel_controller.dart';
+import 'dart:io';
+import 'dart:typed_data';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:doctor_app/pages/follow.dart';
-import 'package:doctor_app/pages/followup.dart';
 import 'package:doctor_app/pages/generate_report.dart';
-import 'package:doctor_app/pages/lab_tests.dart';
-import 'package:doctor_app/pages/labtest.dart';
 import 'package:doctor_app/pages/prescription.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 final _scrollController = ScrollController();
 
 class patient_profile extends StatefulWidget {
-  const patient_profile({Key? key}) : super(key: key);
+  const patient_profile({super.key});
 
   @override
   State<patient_profile> createState() => _HistState();
@@ -27,6 +23,8 @@ class _HistState extends State<patient_profile> {
   late List<_ChartData> data;
   TooltipBehavior? _tooltipBehavior;
   List<ChartData>? chartData;
+  File? _pickedImage;
+  Uint8List webImage = Uint8List(8);
 
   // late TooltipBehavior _tooltip;
 
@@ -45,6 +43,36 @@ class _HistState extends State<patient_profile> {
     super.initState();
   }
 
+  Future<void> _pickImage() async {
+    if (!kIsWeb) {
+      final ImagePicker _picker = ImagePicker();
+      XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        var selected = File(image.path);
+        setState(() {
+          _pickedImage = selected;
+        });
+      } else {
+        print("No image has been picked");
+      }
+    } else if (kIsWeb) {
+      final ImagePicker _picker = ImagePicker();
+      XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        var f = await image.readAsBytes();
+        setState(() {
+          webImage = f;
+          _pickedImage = File('a');
+        });
+      } else {
+        print("No image has been picked");
+      }
+    } else {
+      print('Something went wrong');
+    }
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     final List<Chartdata> chartData = <Chartdata>[
@@ -69,33 +97,6 @@ class _HistState extends State<patient_profile> {
 
     final LinearGradient gradientColors =
         LinearGradient(colors: color, stops: stops);
-
-    final List test1 = [
-    {"Test details": "PEMO", "Result": 16.3},
-    {"Test details": "PCV", "Result": 16.3},
-    {"Test details": "WBC", "Result": 16.3},
-    {"Test details": "BP", "Result": 16.3},
-    {"Test details": "BGR", "Result": 16.3},
-    {"Test details": "BU", "Result": 16.3},
-    {"Test details": "SC", "Result": 16.3},
-    {"Test details": "SOD", "Result": 16.3},
-    {"Test details": "SG", "Result": 16.3},
-    {"Test details": "AL", "Result": 16.3},
-    {"Test details": "SU", "Result": 16.3},
-  ];
-    final List test2 = [
-    {"Test details": "POT", "Result": "Normal"},
-    {"Test details": "RBC", "Result": "Abnormal"},
-    {"Test details": "PC", "Result": "Normal"},
-    {"Test details": "PCC", "Result": "Normal"},
-    {"Test details": "PA", "Result": "Normal"},
-    {"Test details": "HTN", "Result": "Normal"},
-    {"Test details": "DM", "Result": "Normal"},
-    {"Test details": "CAD", "Result": "Normal"},
-    {"Test details": "PE", "Result": "Normal"},
-    {"Test details": "ANE", "Result": "Normal"},
-    {"Test details": "APPET", "Result": "Normal"},
-  ];
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(241, 246, 252, 1),
@@ -530,7 +531,7 @@ class _HistState extends State<patient_profile> {
                                                   fontSize: 34),
                                             ],
                                           ),
-                                          Container(
+                                          SizedBox(
                                               width: 350,
                                               height: 200,
                                               child: SfCircularChart(
@@ -721,7 +722,7 @@ class _HistState extends State<patient_profile> {
                                                                             alignment:
                                                                                 Alignment.bottomRight,
                                                                             children: [
-                                                                              Container(
+                                                                              SizedBox(
                                                                                   height: 500,
                                                                                   width: 300,
                                                                                   child: SingleChildScrollView(
@@ -730,9 +731,9 @@ class _HistState extends State<patient_profile> {
                                                                                         // height: 400,
                                                                                         child: Column(
                                                                                       children: [
-                                                                                        testDatial(context),
-                                                                                        testDatial(context),
-                                                                                        testDatial(context),
+                                                                                        testdatail(),
+                                                                                        testdatail(),
+                                                                                        testdatail(),
                                                                                       ],
                                                                                     )),
                                                                                   )),
@@ -780,7 +781,7 @@ class _HistState extends State<patient_profile> {
                                                                           alignment:
                                                                               Alignment.bottomRight,
                                                                           children: [
-                                                                            Container(
+                                                                            SizedBox(
                                                                                 height: 500,
                                                                                 width: 300,
                                                                                 child: SingleChildScrollView(
@@ -892,19 +893,25 @@ class _HistState extends State<patient_profile> {
                                                                                                           padding: const EdgeInsets.all(50),
                                                                                                           onPressed: () {
                                                                                                             // upload image from pc
+                                                                                                            //_pickImage();
+                            
                                                                                                           },
-                                                                                                          child: Column(
-                                                                                                            children: [
-                                                                                                              Image.asset("images/upload (2) 1.png"),
-                                                                                                              const Text(
-                                                                                                                "upload image",
-                                                                                                                style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30),
-                                                                                                              ),
-                                                                                                              const Text(
-                                                                                                                "choose file",
-                                                                                                                style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
-                                                                                                              ),
-                                                                                                            ],
+                                                                                                          child: Container(
+                                                                                                            child: Column(
+                                                                                                              children: [
+                                                                                                                Image.asset("images/upload (2) 1.png"),
+                                                                                                                TextButton(
+                                                                                                                  child: Text("upload image", style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30)),
+                                                                                                                  onPressed: () {
+                                                                                                                    _pickImage();
+                                                                                                                  },
+                                                                                                                ),
+                                                                                                                const Text(
+                                                                                                                  "choose file",
+                                                                                                                  style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
+                                                                                                                ),
+                                                                                                              ],
+                                                                                                            ),
                                                                                                           ),
                                                                                                         ),
                                                                                                       ),
@@ -960,21 +967,22 @@ class _HistState extends State<patient_profile> {
                                                 text: "Lab Test", fontSize: 26),
                                             Row(
                                               children: [
-                                                Container(
-                                                    color:
-                                                        const Color(0xff0C8A7D),
-                                                    height: 50,
-                                                    width: 300,
-                                                    child: MaterialButton(
-                                                      onPressed: () {
-                                                        // view test pop up
-                                                      },
-                                                      child:
-                                                          const SharedColorTextWhite(
-                                                        text: "2 feb 2023",
-                                                        fontSize: 18,
-                                                      ),
-                                                    )),
+                                                TestContainer(),
+                                                // Container(
+                                                //     color:
+                                                //         const Color(0xff0C8A7D),
+                                                //     height: 50,
+                                                //     width: 300,
+                                                //     child: MaterialButton(
+                                                //       onPressed: () {
+                                                //         // view test pop up
+                                                //       },
+                                                //       child:
+                                                //           const SharedColorTextWhite(
+                                                //         text: "2 feb 2023",
+                                                //         fontSize: 18,
+                                                //       ),
+                                                //     )),
                                                 Container(
                                                     height: 40,
                                                     width: 80,
@@ -1040,7 +1048,7 @@ class _HistState extends State<patient_profile> {
                                                                       0xffFFFFFF),
                                                               content: Expanded(
                                                                   child:
-                                                                      Container(
+                                                                      SizedBox(
                                                                 width: MediaQuery.of(
                                                                         context)
                                                                     .size
@@ -1073,10 +1081,10 @@ class _HistState extends State<patient_profile> {
                                                                               //col1
                                                                               Column(children: [
                                                                                 Row(children: [
-                                                                                  Container(
+                                                                                  const SizedBox(
                                                                                     width: 180,
                                                                                     //color: Colors.black,
-                                                                                    child: const Text("Patient name", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                    child: Text("Patient name", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
                                                                                   ),
                                                                                   const SizedBox(width: 10),
                                                                                   Padding(
@@ -1095,10 +1103,10 @@ class _HistState extends State<patient_profile> {
                                                                                   )
                                                                                 ]),
                                                                                 Row(children: [
-                                                                                  Container(
+                                                                                  const SizedBox(
                                                                                     width: 180,
                                                                                     //color: Colors.black,
-                                                                                    child: const Text("Patient info", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                    child: Text("Patient info", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
                                                                                   ),
                                                                                   const SizedBox(width: 10),
                                                                                   Container(
@@ -1114,12 +1122,12 @@ class _HistState extends State<patient_profile> {
                                                                                   )
                                                                                 ]),
                                                                                 Row(children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsets.only(top: 9),
-                                                                                    child: Container(
+                                                                                  const Padding(
+                                                                                    padding: EdgeInsets.only(top: 9),
+                                                                                    child: SizedBox(
                                                                                       width: 180,
                                                                                       //color: Colors.black,
-                                                                                      child: const Text("Patient ID", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                      child: Text("Patient ID", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
                                                                                     ),
                                                                                   ),
                                                                                   const SizedBox(width: 10),
@@ -1143,10 +1151,10 @@ class _HistState extends State<patient_profile> {
                                                                               //col2
                                                                               Column(children: [
                                                                                 Row(children: [
-                                                                                  Container(
+                                                                                  const SizedBox(
                                                                                     width: 180,
                                                                                     //color: Colors.black,
-                                                                                    child: const Text("Doctor name", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                    child: Text("Doctor name", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
                                                                                   ),
                                                                                   const SizedBox(width: 10),
                                                                                   Padding(
@@ -1165,10 +1173,10 @@ class _HistState extends State<patient_profile> {
                                                                                   )
                                                                                 ]),
                                                                                 Row(children: [
-                                                                                  Container(
+                                                                                  const SizedBox(
                                                                                     width: 180,
                                                                                     //color: Colors.black,
-                                                                                    child: const Text("Date", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                    child: Text("Date", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
                                                                                   ),
                                                                                   const SizedBox(width: 10),
                                                                                   Container(
@@ -1184,12 +1192,12 @@ class _HistState extends State<patient_profile> {
                                                                                   )
                                                                                 ]),
                                                                                 Row(children: [
-                                                                                  Padding(
-                                                                                    padding: const EdgeInsets.only(top: 9),
-                                                                                    child: Container(
+                                                                                  const Padding(
+                                                                                    padding: EdgeInsets.only(top: 9),
+                                                                                    child: SizedBox(
                                                                                       width: 180,
                                                                                       //color: Colors.black,
-                                                                                      child: const Text("Class", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
+                                                                                      child: Text("Class", style: TextStyle(fontSize: 30, color: Color(0xff096B61), fontWeight: FontWeight.w400)),
                                                                                     ),
                                                                                   ),
                                                                                   const SizedBox(width: 10),
@@ -1441,7 +1449,7 @@ class _HistState extends State<patient_profile> {
                                               BorderRadius.circular(10),
                                           child:
                                               // follow up
-                                              Container(
+                                              SizedBox(
                                                   height: 140,
                                                   width: 200,
                                                   child: ClipRRect(
@@ -1547,7 +1555,7 @@ class _HistState extends State<patient_profile> {
                                           )
                                         ],
                                       ),
-                                      Container(
+                                      SizedBox(
                                           width: 490,
                                           height: 280,
                                           child: SfCartesianChart(
@@ -1640,7 +1648,7 @@ class _HistState extends State<patient_profile> {
                                           )
                                         ],
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: 490,
                                         height: 280,
                                         child: SfCartesianChart(
@@ -1714,7 +1722,7 @@ class _HistState extends State<patient_profile> {
                                             )
                                           ],
                                         ),
-                                        Container(
+                                        SizedBox(
                                           height: 220,
                                           width: 350,
                                           child: SfCartesianChart(
@@ -1765,7 +1773,7 @@ class _HistState extends State<patient_profile> {
                                             )
                                           ],
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: 350,
                                           height: 220,
                                           child: SfCartesianChart(
@@ -1820,7 +1828,7 @@ class _HistState extends State<patient_profile> {
                                           )
                                         ],
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: 400,
                                         height: 220,
                                         child: SfCartesianChart(
@@ -2094,67 +2102,6 @@ class ChartData {
   final Color;
   final String text;
 }
-// List<Widget> generateNumberWidgets(int count) {
-// List<Widget> allWidgets = [];
-// for (int i = 1; i <= count; i++) {
-// allWidgets .add(medicine()$i);
-// }
-// return allWidgets ;
-// }
-
-// class CarouselDemo extends StatelessWidget {
-//   CarouselController buttonCarouselController = CarouselController();
-//   final CarouselController _controller = CarouselController();
-//   @override
-//   void initState() {
-//     // super.initState();
-//   }
-
-//   // get child => generateNumberWidgets(10);
-
-//   @override
-//   Widget build(BuildContext context) => Column(children: <Widget>[
-//         CarouselSlider(
-//           items: medicines,
-//           carouselController: buttonCarouselController,
-//           options: CarouselOptions(
-//       height: 200,
-//       aspectRatio: 16/9,
-//       viewportFraction: 1,
-//       initialPage: 0,
-//       enableInfiniteScroll: true,
-//       reverse: true,
-//       autoPlay: false,
-//       autoPlayInterval: Duration(seconds: 3),
-//       autoPlayAnimationDuration: Duration(milliseconds: 800),
-//       autoPlayCurve: Curves.fastOutSlowIn,
-//       enlargeCenterPage: true,
-//       enlargeFactor: 0.3,
-//       onPageChanged: (index, reason) {
-
-//       },
-//       scrollDirection: Axis.horizontal,
-//           ),
-//         ),
-//         Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: <Widget>[
-//                   Flexible(
-//                     child: ElevatedButton(
-//                       onPressed: () => _controller.previousPage(),
-//                       child: Text('←'),
-//                     ),
-//                   ),
-//                   Flexible(
-//                     child: ElevatedButton(
-//                       onPressed: () => _controller.nextPage(),
-//                       child: Text('→'),
-//                     ),
-//                   ),
-//           ],
-//         )
-//       ]);
-// }
 
 Widget medic() {
   return CarouselSlider.builder(
@@ -2203,7 +2150,7 @@ Widget ScanDatial(BuildContext context) {
               return AlertDialog(
                 backgroundColor: const Color(0xffFFFFFF),
                 content: Expanded(
-                    child: Container(
+                    child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
                     child: Column(children: [
@@ -2225,10 +2172,10 @@ Widget ScanDatial(BuildContext context) {
                             //col1
                             Column(children: [
                               Row(children: [
-                                Container(
+                                const SizedBox(
                                   width: 180,
                                   //color: Colors.black,
-                                  child: const Text("Patient name",
+                                  child: Text("Patient name",
                                       style: TextStyle(
                                           fontSize: 30,
                                           color: Color(0xff096B61),
@@ -2256,10 +2203,10 @@ Widget ScanDatial(BuildContext context) {
                                 )
                               ]),
                               Row(children: [
-                                Container(
+                                const SizedBox(
                                   width: 180,
                                   //color: Colors.black,
-                                  child: const Text("Patient info",
+                                  child: Text("Patient info",
                                       style: TextStyle(
                                           fontSize: 30,
                                           color: Color(0xff096B61),
@@ -2283,12 +2230,12 @@ Widget ScanDatial(BuildContext context) {
                                 )
                               ]),
                               Row(children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 9),
-                                  child: Container(
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 9),
+                                  child: SizedBox(
                                     width: 180,
                                     //color: Colors.black,
-                                    child: const Text("Patient ID",
+                                    child: Text("Patient ID",
                                         style: TextStyle(
                                             fontSize: 30,
                                             color: Color(0xff096B61),
@@ -2320,10 +2267,10 @@ Widget ScanDatial(BuildContext context) {
                             //col2
                             Column(children: [
                               Row(children: [
-                                Container(
+                                const SizedBox(
                                   width: 180,
                                   //color: Colors.black,
-                                  child: const Text("Doctor name",
+                                  child: Text("Doctor name",
                                       style: TextStyle(
                                           fontSize: 30,
                                           color: Color(0xff096B61),
@@ -2351,10 +2298,10 @@ Widget ScanDatial(BuildContext context) {
                                 )
                               ]),
                               Row(children: [
-                                Container(
+                                const SizedBox(
                                   width: 180,
                                   //color: Colors.black,
-                                  child: const Text("Date",
+                                  child: Text("Date",
                                       style: TextStyle(
                                           fontSize: 30,
                                           color: Color(0xff096B61),
@@ -2378,12 +2325,12 @@ Widget ScanDatial(BuildContext context) {
                                 )
                               ]),
                               Row(children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 9),
-                                  child: Container(
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 9),
+                                  child: SizedBox(
                                     width: 180,
                                     //color: Colors.black,
-                                    child: const Text("Class",
+                                    child: Text("Class",
                                         style: TextStyle(
                                             fontSize: 30,
                                             color: Color(0xff096B61),
@@ -2462,396 +2409,825 @@ Widget ScanDatial(BuildContext context) {
       ));
 }
 
-Widget testDatial(BuildContext context) {
-  return Container(
-      margin: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: const Color(0xff6DB9B1),
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(.1),
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
-      ),
-      child: MaterialButton(
-        onPressed: () {
-          // view test pop up for test page
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                backgroundColor: const Color(0xffFFFFFF),
-                content: Expanded(
-                    child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: SingleChildScrollView(
-                    child: Column(children: [
-                      Container(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                            icon: const Icon(Icons.clear),
-                            color: const Color(0xff0C8A7D),
-                            iconSize: 30,
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            }),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(10),
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(children: [
-                            //col1
-                            Column(children: [
-                              Row(children: [
-                                Container(
-                                  width: 180,
-                                  //color: Colors.black,
-                                  child: const Text("Patient name",
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          color: Color(0xff096B61),
-                                          fontWeight: FontWeight.w400)),
-                                ),
-                                const SizedBox(width: 10),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: 15, top: 14),
-                                  child: Container(
-                                    width: 450,
-                                    height: 44,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            style: BorderStyle.solid,
-                                            color: const Color(0xff096B61))),
-                                    padding: const EdgeInsets.only(
-                                        left: 15, top: 5, bottom: 5),
-                                    child: const Text("Mohamed Nasr",
-                                        style: TextStyle(
-                                          color: Color(0xff000000),
-                                          fontSize: 20,
-                                        )),
-                                  ),
-                                )
-                              ]),
-                              Row(children: [
-                                Container(
-                                  width: 180,
-                                  //color: Colors.black,
-                                  child: const Text("Patient info",
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          color: Color(0xff096B61),
-                                          fontWeight: FontWeight.w400)),
-                                ),
-                                const SizedBox(width: 10),
-                                Container(
-                                  width: 450,
-                                  height: 45,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          style: BorderStyle.solid,
-                                          color: const Color(0xff096B61))),
-                                  padding: const EdgeInsets.only(
-                                      left: 15, top: 5, bottom: 5),
-                                  child: const Text("Male_30 Years",
-                                      style: TextStyle(
-                                        color: Color(0xff000000),
-                                        fontSize: 20,
-                                      )),
-                                )
-                              ]),
-                              Row(children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 9),
-                                  child: Container(
-                                    width: 180,
-                                    //color: Colors.black,
-                                    child: const Text("Patient ID",
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            color: Color(0xff096B61),
-                                            fontWeight: FontWeight.w400)),
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Container(
-                                    width: 450,
-                                    height: 45,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            style: BorderStyle.solid,
-                                            color: const Color(0xff096B61))),
-                                    padding: const EdgeInsets.only(
-                                        left: 15, top: 5, bottom: 5),
-                                    child: const Text("1234556",
-                                        style: TextStyle(
-                                          color: Color(0xff000000),
-                                          fontSize: 20,
-                                        )),
-                                  ),
-                                )
-                              ]),
-                            ]),
-                            const SizedBox(width: 50),
-                            //col2
-                            Column(children: [
-                              Row(children: [
-                                Container(
-                                  width: 180,
-                                  //color: Colors.black,
-                                  child: const Text("Doctor name",
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          color: Color(0xff096B61),
-                                          fontWeight: FontWeight.w400)),
-                                ),
-                                const SizedBox(width: 10),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: 15, top: 14),
-                                  child: Container(
-                                    width: 450,
-                                    height: 44,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            style: BorderStyle.solid,
-                                            color: const Color(0xff096B61))),
-                                    padding: const EdgeInsets.only(
-                                        left: 15, top: 5, bottom: 5),
-                                    child: const Text("Nada Nasr",
-                                        style: TextStyle(
-                                          color: Color(0xff000000),
-                                          fontSize: 20,
-                                        )),
-                                  ),
-                                )
-                              ]),
-                              Row(children: [
-                                Container(
-                                  width: 180,
-                                  //color: Colors.black,
-                                  child: const Text("Date",
-                                      style: TextStyle(
-                                          fontSize: 30,
-                                          color: Color(0xff096B61),
-                                          fontWeight: FontWeight.w400)),
-                                ),
-                                const SizedBox(width: 10),
-                                Container(
-                                  width: 450,
-                                  height: 45,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          style: BorderStyle.solid,
-                                          color: const Color(0xff096B61))),
-                                  padding: const EdgeInsets.only(
-                                      left: 15, top: 5, bottom: 5),
-                                  child: const Text("15/05/2024",
-                                      style: TextStyle(
-                                        color: Color(0xff000000),
-                                        fontSize: 20,
-                                      )),
-                                )
-                              ]),
-                              Row(children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 9),
-                                  child: Container(
-                                    width: 180,
-                                    //color: Colors.black,
-                                    child: const Text("Class",
-                                        style: TextStyle(
-                                            fontSize: 30,
-                                            color: Color(0xff096B61),
-                                            fontWeight: FontWeight.w400)),
-                                  ),
-                                ),
-                                const SizedBox(width: 10),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Container(
-                                    width: 450,
-                                    height: 45,
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            style: BorderStyle.solid,
-                                            color: const Color(0xff096B61))),
-                                    padding: const EdgeInsets.only(
-                                        left: 15, top: 5, bottom: 5),
-                                    child: const Text(".........",
-                                        style: TextStyle(
-                                          color: Color(0xff000000),
-                                          fontSize: 20,
-                                        )),
-                                  ),
-                                )
-                              ]),
-                            ])
-                          ]),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const Divider(color: Color(0xff096B61)),
-                      Container(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(children: [
-                            //col1
-                            Column(children: [
-                              Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: Container(
-                                  width: 500,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          style: BorderStyle.solid,
-                                          color: const Color(0xff096B61))),
-                                  child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text("Test details",
-                                            style: TextStyle(
-                                                color: Color(0xff000000),
-                                                fontSize: 32,
-                                                fontWeight: FontWeight.w400)),
-                                        Text("Result",
-                                            style: TextStyle(
-                                                color: Color(0xff000000),
-                                                fontSize: 32,
-                                                fontWeight: FontWeight.w400))
-                                      ]),
-                                ),
-                              ),
-                              ...List.generate(test1.length, (index) {
-                                return Container(
-                                  child: Row(children: [
-                                    Container(
-                                      width: 100,
-                                      child: Text(test1[index]["Test details"],
-                                          style: const TextStyle(
-                                              color: Color(0xff000000),
-                                              fontSize: 32,
-                                              fontWeight: FontWeight.w400)),
-                                    ),
-                                    const SizedBox(width: 70),
-                                    const Text(":",
-                                        style: TextStyle(
-                                            color: Color(0xff000000),
-                                            fontSize: 32,
-                                            fontWeight: FontWeight.w400)),
-                                    const SizedBox(width: 90),
-                                    Container(
-                                      width: 60,
-                                      child: Text("$index",
-                                          style: const TextStyle(
-                                              color: Color(0xff000000),
-                                              fontSize: 32,
-                                              fontWeight: FontWeight.w400)),
-                                    )
-                                  ]),
-                                );
-                              }),
-                            ]),
-                            const SizedBox(width: 200),
-                            //col2
-                            Column(children: [
-                              Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: Container(
-                                  width: 500,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          style: BorderStyle.solid,
-                                          color: const Color(0xff096B61))),
-                                  child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text("Test details",
-                                            style: TextStyle(
-                                                color: Color(0xff000000),
-                                                fontSize: 32,
-                                                fontWeight: FontWeight.w400)),
-                                        Text("Result",
-                                            style: TextStyle(
-                                                color: Color(0xff000000),
-                                                fontSize: 32,
-                                                fontWeight: FontWeight.w400))
-                                      ]),
-                                ),
-                              ),
-                              ...List.generate(test2.length, (index) {
-                                return Container(
-                                  child: Row(children: [
-                                    const SizedBox(width: 100),
-                                    Container(
-                                      width: 100,
-                                      child: Text(test2[index]["Test details"],
-                                          style: const TextStyle(
-                                              color: Color(0xff000000),
-                                              fontSize: 32,
-                                              fontWeight: FontWeight.w400)),
-                                    ),
-                                    const SizedBox(width: 70),
-                                    const Text(":",
-                                        style: TextStyle(
-                                            color: Color(0xff000000),
-                                            fontSize: 32,
-                                            fontWeight: FontWeight.w400)),
-                                    const SizedBox(width: 90),
-                                    Container(
-                                      width: 200,
-                                      child: Text(test2[index]["Result"],
-                                          style: const TextStyle(
-                                              color: Color(0xff000000),
-                                              fontSize: 32,
-                                              fontWeight: FontWeight.w400)),
-                                    )
-                                  ]),
-                                );
-                              }),
-                            ]),
-                          ]),
-                        ),
-                      )
-                    ]),
-                  ),
-                )),
-              );
-            },
-          );
-        },
-        child: Container(
-          alignment: Alignment.centerLeft,
-          width: 300,
-          height: 110,
-          child: Column(children: [
-            Container(
-              margin: const EdgeInsets.all(25),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SharedColorTextWhite(
-                    text: "2/10/2024",
-                    fontSize: 26,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  SharedColorTextWhite(
-                    text: "Ahmed elkateeb",
-                    fontSize: 16,
-                  )
-                ],
-              ),
-            )
-          ]),
+class testdatail extends StatelessWidget {
+  testdatail({super.key});
+  final List test1 = [
+    {"Test details": "PEMO", "Result": 16.3},
+    {"Test details": "PCV", "Result": 16.3},
+    {"Test details": "WBC", "Result": 16.3},
+    {"Test details": "BP", "Result": 16.3},
+    {"Test details": "BGR", "Result": 16.3},
+    {"Test details": "BU", "Result": 16.3},
+    {"Test details": "SC", "Result": 16.3},
+    {"Test details": "SOD", "Result": 16.3},
+    {"Test details": "SG", "Result": 16.3},
+    {"Test details": "AL", "Result": 16.3},
+    {"Test details": "SU", "Result": 16.3},
+  ];
+  List test2 = [
+    {"Test details": "POT", "Result": "Normal"},
+    {"Test details": "RBC", "Result": "Abnormal"},
+    {"Test details": "PC", "Result": "Normal"},
+    {"Test details": "PCC", "Result": "Normal"},
+    {"Test details": "PA", "Result": "Normal"},
+    {"Test details": "HTN", "Result": "Normal"},
+    {"Test details": "DM", "Result": "Normal"},
+    {"Test details": "CAD", "Result": "Normal"},
+    {"Test details": "PE", "Result": "Normal"},
+    {"Test details": "ANE", "Result": "Normal"},
+    {"Test details": "APPET", "Result": "Normal"},
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: const Color(0xff6DB9B1),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(.1),
+              spreadRadius: 1,
+              blurRadius: 3,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ],
         ),
-      ));
+        child: MaterialButton(
+          onPressed: () {
+            // view test pop up for test page
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  backgroundColor: const Color(0xffFFFFFF),
+                  content: Expanded(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: SingleChildScrollView(
+                      child: Column(children: [
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                              icon: const Icon(Icons.clear),
+                              color: const Color(0xff0C8A7D),
+                              iconSize: 30,
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              }),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(children: [
+                              //col1
+                              Column(children: [
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Patient name",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 15, top: 14),
+                                    child: Container(
+                                      width: 450,
+                                      height: 44,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text("Mohamed Nasr",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Patient info",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("Male_30 Years",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 9),
+                                    child: SizedBox(
+                                      width: 180,
+                                      //color: Colors.black,
+                                      child: Text("Patient ID",
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              color: Color(0xff096B61),
+                                              fontWeight: FontWeight.w400)),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Container(
+                                      width: 450,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text("1234556",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                              ]),
+                              const SizedBox(width: 50),
+                              //col2
+                              Column(children: [
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Doctor name",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 15, top: 14),
+                                    child: Container(
+                                      width: 450,
+                                      height: 44,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text("Nada Nasr",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Date",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("15/05/2024",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 9),
+                                    child: SizedBox(
+                                      width: 180,
+                                      //color: Colors.black,
+                                      child: Text("Class",
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              color: Color(0xff096B61),
+                                              fontWeight: FontWeight.w400)),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Container(
+                                      width: 450,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text(".........",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                              ])
+                            ]),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        const Divider(color: Color(0xff096B61)),
+                        Container(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(children: [
+                              //col1
+                              Column(children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Container(
+                                    width: 500,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text("Test details",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400)),
+                                          Text("Result",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400))
+                                        ]),
+                                  ),
+                                ),
+                                ...List.generate(test1.length, (index) {
+                                  return Container(
+                                    child: Row(children: [
+                                      SizedBox(
+                                        width: 100,
+                                        child: Text(
+                                            test1[index]["Test details"],
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      ),
+                                      const SizedBox(width: 70),
+                                      const Text(":",
+                                          style: TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                      const SizedBox(width: 90),
+                                      SizedBox(
+                                        width: 60,
+                                        child: Text("$index",
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      )
+                                    ]),
+                                  );
+                                }),
+                              ]),
+                              const SizedBox(width: 200),
+                              //col2
+                              Column(children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Container(
+                                    width: 500,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text("Test details",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400)),
+                                          Text("Result",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400))
+                                        ]),
+                                  ),
+                                ),
+                                ...List.generate(test2.length, (index) {
+                                  return Container(
+                                    child: Row(children: [
+                                      const SizedBox(width: 100),
+                                      SizedBox(
+                                        width: 100,
+                                        child: Text(
+                                            test2[index]["Test details"],
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      ),
+                                      const SizedBox(width: 70),
+                                      const Text(":",
+                                          style: TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                      const SizedBox(width: 90),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(test2[index]["Result"],
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      )
+                                    ]),
+                                  );
+                                }),
+                              ]),
+                            ]),
+                          ),
+                        )
+                      ]),
+                    ),
+                  )),
+                );
+              },
+            );
+          },
+          child: Container(
+            alignment: Alignment.centerLeft,
+            width: 300,
+            height: 110,
+            child: Column(children: [
+              Container(
+                margin: const EdgeInsets.all(25),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SharedColorTextWhite(
+                      text: "2/10/2024",
+                      fontSize: 26,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    SharedColorTextWhite(
+                      text: "Ahmed elkateeb",
+                      fontSize: 16,
+                    )
+                  ],
+                ),
+              )
+            ]),
+          ),
+        ));
+  }
+}
+
+class TestContainer extends StatelessWidget {
+  TestContainer({super.key});
+  final List test1 = [
+    {"Test details": "PEMO", "Result": 16.3},
+    {"Test details": "PCV", "Result": 16.3},
+    {"Test details": "WBC", "Result": 16.3},
+    {"Test details": "BP", "Result": 16.3},
+    {"Test details": "BGR", "Result": 16.3},
+    {"Test details": "BU", "Result": 16.3},
+    {"Test details": "SC", "Result": 16.3},
+    {"Test details": "SOD", "Result": 16.3},
+    {"Test details": "SG", "Result": 16.3},
+    {"Test details": "AL", "Result": 16.3},
+    {"Test details": "SU", "Result": 16.3},
+  ];
+  List test2 = [
+    {"Test details": "POT", "Result": "Normal"},
+    {"Test details": "RBC", "Result": "Abnormal"},
+    {"Test details": "PC", "Result": "Normal"},
+    {"Test details": "PCC", "Result": "Normal"},
+    {"Test details": "PA", "Result": "Normal"},
+    {"Test details": "HTN", "Result": "Normal"},
+    {"Test details": "DM", "Result": "Normal"},
+    {"Test details": "CAD", "Result": "Normal"},
+    {"Test details": "PE", "Result": "Normal"},
+    {"Test details": "ANE", "Result": "Normal"},
+    {"Test details": "APPET", "Result": "Normal"},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: const Color(0xff0C8A7D),
+        height: 50,
+        width: 300,
+        child: MaterialButton(
+          onPressed: () {
+            // view test pop up
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  backgroundColor: const Color(0xffFFFFFF),
+                  content: Expanded(
+                      child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: SingleChildScrollView(
+                      child: Column(children: [
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                              icon: const Icon(Icons.clear),
+                              color: const Color(0xff0C8A7D),
+                              iconSize: 30,
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              }),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(children: [
+                              //col1
+                              Column(children: [
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Patient name",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 15, top: 14),
+                                    child: Container(
+                                      width: 450,
+                                      height: 44,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text("Mohamed Nasr",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Patient info",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("Male_30 Years",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 9),
+                                    child: SizedBox(
+                                      width: 180,
+                                      //color: Colors.black,
+                                      child: Text("Patient ID",
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              color: Color(0xff096B61),
+                                              fontWeight: FontWeight.w400)),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Container(
+                                      width: 450,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text("1234556",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                              ]),
+                              const SizedBox(width: 50),
+                              //col2
+                              Column(children: [
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Doctor name",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 15, top: 14),
+                                    child: Container(
+                                      width: 450,
+                                      height: 44,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text("Nada Nasr",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const SizedBox(
+                                    width: 180,
+                                    //color: Colors.black,
+                                    child: Text("Date",
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            color: Color(0xff096B61),
+                                            fontWeight: FontWeight.w400)),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Container(
+                                    width: 450,
+                                    height: 45,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    padding: const EdgeInsets.only(
+                                        left: 15, top: 5, bottom: 5),
+                                    child: const Text("15/05/2024",
+                                        style: TextStyle(
+                                          color: Color(0xff000000),
+                                          fontSize: 20,
+                                        )),
+                                  )
+                                ]),
+                                Row(children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 9),
+                                    child: SizedBox(
+                                      width: 180,
+                                      //color: Colors.black,
+                                      child: Text("Class",
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              color: Color(0xff096B61),
+                                              fontWeight: FontWeight.w400)),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Container(
+                                      width: 450,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              style: BorderStyle.solid,
+                                              color: const Color(0xff096B61))),
+                                      padding: const EdgeInsets.only(
+                                          left: 15, top: 5, bottom: 5),
+                                      child: const Text(".........",
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 20,
+                                          )),
+                                    ),
+                                  )
+                                ]),
+                              ])
+                            ]),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        const Divider(color: Color(0xff096B61)),
+                        Container(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(children: [
+                              //col1
+                              Column(children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Container(
+                                    width: 500,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text("Test details",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400)),
+                                          Text("Result",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400))
+                                        ]),
+                                  ),
+                                ),
+                                ...List.generate(test1.length, (index) {
+                                  return Container(
+                                    child: Row(children: [
+                                      SizedBox(
+                                        width: 100,
+                                        child: Text(
+                                            test1[index]["Test details"],
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      ),
+                                      const SizedBox(width: 70),
+                                      const Text(":",
+                                          style: TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                      const SizedBox(width: 90),
+                                      SizedBox(
+                                        width: 60,
+                                        child: Text("$index",
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      )
+                                    ]),
+                                  );
+                                }),
+                              ]),
+                              const SizedBox(width: 200),
+                              //col2
+                              Column(children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(15),
+                                  child: Container(
+                                    width: 500,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            style: BorderStyle.solid,
+                                            color: const Color(0xff096B61))),
+                                    child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text("Test details",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400)),
+                                          Text("Result",
+                                              style: TextStyle(
+                                                  color: Color(0xff000000),
+                                                  fontSize: 32,
+                                                  fontWeight: FontWeight.w400))
+                                        ]),
+                                  ),
+                                ),
+                                ...List.generate(test2.length, (index) {
+                                  return Container(
+                                    child: Row(children: [
+                                      const SizedBox(width: 100),
+                                      SizedBox(
+                                        width: 100,
+                                        child: Text(
+                                            test2[index]["Test details"],
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      ),
+                                      const SizedBox(width: 70),
+                                      const Text(":",
+                                          style: TextStyle(
+                                              color: Color(0xff000000),
+                                              fontSize: 32,
+                                              fontWeight: FontWeight.w400)),
+                                      const SizedBox(width: 90),
+                                      SizedBox(
+                                        width: 200,
+                                        child: Text(test2[index]["Result"],
+                                            style: const TextStyle(
+                                                color: Color(0xff000000),
+                                                fontSize: 32,
+                                                fontWeight: FontWeight.w400)),
+                                      )
+                                    ]),
+                                  );
+                                }),
+                              ]),
+                            ]),
+                          ),
+                        )
+                      ]),
+                    ),
+                  )),
+                );
+              },
+            );
+          },
+          child: const SharedColorTextWhite(
+            text: "2 feb 2023",
+            fontSize: 18,
+          ),
+        ));
+  }
 }

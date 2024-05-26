@@ -1,4 +1,4 @@
-import 'package:doctor_app/pages/Assistants.dart';
+import 'package:doctor_app/pages/assistants.dart';
 import 'package:doctor_app/pages/Manage.dart';
 import 'package:doctor_app/pages/Patients.dart';
 import 'package:doctor_app/pages/Scans.dart';
@@ -120,7 +120,7 @@ class _Home extends State<Home> {
               IconButton(
                   onPressed: () {
                     setState(() {
-                      Icon(Icons.notifications);
+                      const Icon(Icons.notifications);
                     });
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const Notifications()));
@@ -335,15 +335,22 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(children: [
+                                            child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const Doctors()));
+                                              },
+                                              child:   Column(children: [
                                               Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: [
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text("5  ",
+                                                    const Text("5  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -351,28 +358,20 @@ class _Home extends State<Home> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold)),
-                                                    ),
                                                     Image.asset(
                                                       "assets/img/medical-team.png",
                                                       width: 90,
                                                       height: 90,
                                                     ),
-                                                  ]),
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).push(
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const Doctors()));
-                                                },
-                                                child: const Text("Doctors",
+                                                  ]),const Text("Doctors",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44,
                                                         fontWeight:
                                                             FontWeight.bold)),
-                                              ),
-                                            ]),
+                                            
+                                            ]),),)
+                                          
                                           ),
                                           Container(
                                             margin: const EdgeInsets.all(5),
@@ -384,45 +383,43 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const Patients()));
+                                              },
+                                              child:   Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                      const Text(
                                                           "43  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
                                                       Image.asset(
                                                         "assets/img/patient.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
-                                                    ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                const Patients()));
-                                                  },
-                                                  child: const Text(
+                                                    ]),const Text(
                                                     "Patients",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
+                                                  )
+                                              ]
+                                            )))
+                                          
                                           ),
                                           Container(
                                             margin: const EdgeInsets.all(5),
@@ -434,45 +431,43 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const Assistants()));
+                                              },
+                                              child:   Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                      const Text(
                                                           "4  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
                                                       Image.asset(
                                                         "assets/img/information.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
-                                                    ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                const Assistants()));
-                                                  },
-                                                  child: const Text(
+                                                    ]),const Text(
                                                     "Assistants",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
                                                   ),
-                                                ),
                                               ],
-                                            ),
+                                            ),),)
+                                          
                                           ),
                                         ]),
                                   ),
@@ -490,42 +485,40 @@ class _Home extends State<Home> {
                                               shape: BoxShape.rectangle,
                                               borderRadius:
                                                   BorderRadius.circular(20)),
-                                          child: Column(
+                                          child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => const LabTests()));
+                                              },
+                                              child:Column(
                                             children: [
                                               Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
-                                                  children: [
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
+                                                  children: [const Text(
                                                         "15  ",
                                                         style: TextStyle(
                                                             color: Colors.white,
                                                             fontSize: 44),
                                                       ),
-                                                    ),
                                                     Image.asset(
                                                       "assets/img/microscope.png",
                                                       width: 90,
                                                       height: 90,
                                                     ),
                                                   ]),
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).push(MaterialPageRoute(
-                                                  builder: (context) => const LabTests()));
-                                                },
-                                                child: const Text(
+                                              const Text(
                                                   "Lab Tests",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 44),
                                                 ),
-                                              ),
                                             ],
-                                          ),
+                                          ),),)
+                                          
                                         ),
                                         Container(
                                           margin: const EdgeInsets.all(5),
@@ -537,42 +530,41 @@ class _Home extends State<Home> {
                                               shape: BoxShape.rectangle,
                                               borderRadius:
                                                   BorderRadius.circular(20)),
-                                          child: Column(
+                                          child:
+                                          ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                  Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => const Reports()));
+                                              },
+                                              child:  Column(
                                             children: [
                                               Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: [
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
+                                                    const Text(
                                                         "7  ",
                                                         style: TextStyle(
                                                             color: Colors.white,
                                                             fontSize: 44),
                                                       ),
-                                                    ),
                                                     Image.asset(
                                                       "assets/img/check-up.png",
                                                       width: 90,
                                                       height: 90,
                                                     ),
                                                   ]),
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const Reports()));
-                                                },
-                                                child: const Text(
+                                              const Text(
                                                   "Reports",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 44),
                                                 ),
-                                              ),
                                             ],
-                                          ),
+                                          ),),) 
+                                        
                                         ),
                                         Container(
                                           margin: const EdgeInsets.all(5),
@@ -584,42 +576,40 @@ class _Home extends State<Home> {
                                               shape: BoxShape.rectangle,
                                               borderRadius:
                                                   BorderRadius.circular(20)),
-                                          child: Column(
+                                          child:
+                                          ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(MaterialPageRoute(
+                                                    builder: (context) => const Scans()));
+                                              },
+                                              child:   Column(
                                             children: [
                                               Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: [
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text(
+                                                   const Text(
                                                         "9  ",
                                                         style: TextStyle(
                                                             color: Colors.white,
                                                             fontSize: 44),
                                                       ),
-                                                    ),
                                                     Image.asset(
                                                       "assets/img/body.png",
                                                       width: 90,
                                                       height: 90,
                                                     ),
-                                                  ]),
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).push(MaterialPageRoute(
-                                                    builder: (context) => const Scans()));
-                                                },
-                                                child: const Text(
+                                                  ]), const Text(
                                                   "Scan",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 44),
                                                 ),
-                                              ),
                                             ],
-                                          ),
+                                          ),),) 
+                                        
                                         ),
                                       ]),
                                 ]),
@@ -644,7 +634,7 @@ class _Home extends State<Home> {
               IconButton(
                   onPressed: () {
                     setState(() {
-                      Icon(Icons.notifications);
+                      const Icon(Icons.notifications);
                     });
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const Notifications()));
@@ -719,7 +709,7 @@ class _Home extends State<Home> {
                     child: IconButton(
                         icon: const Icon(Icons.menu_open),
                         iconSize: 60,
-                        color: Color(0xffFFFFFF),
+                        color: const Color(0xffFFFFFF),
                         onPressed: () {
                           Navigator.of(context).pop();
                         }),
@@ -857,15 +847,22 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(children: [
+                                            child:
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const Doctors()));
+                                              },
+                                              child:   Column(children: [
                                               Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
                                                           .spaceAround,
                                                   children: [
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: const Text("5  ",
+                                                    const Text("5  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -873,28 +870,21 @@ class _Home extends State<Home> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold)),
-                                                    ),
+                                                  
                                                     Image.asset(
                                                       "assets/img/medical-team.png",
                                                       width: 90,
                                                       height: 90,
                                                     ),
                                                   ]),
-                                              TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).push(
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const Doctors()));
-                                                },
-                                                child: const Text("Doctors",
+                                            const Text("Doctors",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44,
                                                         fontWeight:
                                                             FontWeight.bold)),
-                                              ),
-                                            ]),
+                                            ])),) 
+                                          
                                           ),
                                           Container(
                                             margin: const EdgeInsets.all(5),
@@ -906,45 +896,43 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child:
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const Patients()));
+                                              },child: Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                      const Text(
                                                           "43  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
                                                       Image.asset(
                                                         "assets/img/patient.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
-                                                    ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                const Patients()));
-                                                  },
-                                                  child: const Text(
+                                                    ]),const Text(
                                                     "Patients",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
                                                   ),
-                                                ),
+                                              
                                               ],
-                                            ),
+                                            ),),) 
+                                            
                                           ),
                                           Container(
                                             margin: const EdgeInsets.all(5),
@@ -956,45 +944,45 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                  Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const Assistants()));
+                                              },child:  Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                      const Text(
                                                           "4  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
+                                                      
                                                       Image.asset(
                                                         "assets/img/information.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
                                                     ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                const Assistants()));
-                                                  },
-                                                  child: const Text(
+                                                const Text(
                                                     "Assistants",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
                                                   ),
-                                                ),
+                                              
                                               ],
-                                            ),
+                                            ),),)
+                                          
                                           ),
                                         ]),
                                   ),
@@ -1013,43 +1001,44 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: 
+                                              MaterialButton(onPressed: (){
+                                                  Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => const LabTests()));
+                                              },child: Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                      const Text(
                                                           "15  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
+                                                    
                                                       Image.asset(
                                                         "assets/img/microscope.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
                                                     ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const LabTests()));
-                                                  },
-                                                  child: const Text(
+                                                const Text(
                                                     "Lab Tests",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
                                                   ),
-                                                ),
+                                              
                                               ],
-                                            ),
+                                            ),),)
+                                            
                                           ),
                                           Container(
                                             margin: const EdgeInsets.all(5),
@@ -1061,44 +1050,45 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                                child: 
+                                                MaterialButton(
+                                                  onPressed: (){
+                                                    Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => const Reports()));
+                                                },
+                                                child:   Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                         const Text(
                                                           "7  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
+                                                      // ),
                                                       Image.asset(
                                                         "assets/img/check-up.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
-                                                    ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const Reports()));
-                                                  },
-                                                  child: const Text(
+                                                    ]), const Text(
                                                     "Reports",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
                                                   ),
-                                                ),
+                                              
                                               ],
-                                            ),
-                                          ),
+                                            ),)
+                                          
+                                          )),
                                           Container(
                                             margin: const EdgeInsets.all(5),
                                             padding: const EdgeInsets.all(5),
@@ -1109,43 +1099,44 @@ class _Home extends State<Home> {
                                                 shape: BoxShape.rectangle,
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
-                                            child: Column(
+                                            child: 
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(20),
+                                              child: MaterialButton(onPressed: (){
+                                                Navigator.of(context).push(MaterialPageRoute(
+                                                      builder: (context) => const Scans()));
+
+                                              },child:   Column(
                                               children: [
                                                 Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .spaceAround,
                                                     children: [
-                                                      TextButton(
-                                                        onPressed: () {},
-                                                        child: const Text(
+                                                      const Text(
                                                           "9  ",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 44),
                                                         ),
-                                                      ),
+                                                      
                                                       Image.asset(
                                                         "assets/img/body.png",
                                                         width: 90,
                                                         height: 90,
                                                       ),
                                                     ]),
-                                                TextButton(
-                                                  onPressed: () {
-                                                    Navigator.of(context).push(MaterialPageRoute(
-                                                      builder: (context) => const Scans()));
-                                                  },
-                                                  child: const Text(
+                                                const Text(
                                                     "Scan",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 44),
                                                   ),
-                                                ),
+                                              
                                               ],
-                                            ),
+                                            ),),)
+                                          
                                           ),
                                         ]),
                                   ),
@@ -1191,14 +1182,6 @@ class Bar_data {
   final double y1;
   final double y2;
 }
-/*class info {
-  String? title;
-  int? num;
-  Color? color;
-  var img;
-
-  info({this.title, this.num, this.color, this.img});
-}*/
 
 
 
