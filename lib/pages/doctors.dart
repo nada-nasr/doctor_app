@@ -17,25 +17,35 @@ class Doctors extends StatefulWidget {
 
 class _Doctors extends State<Doctors> {
   final attributes =
-      ListModel(name: "Name", id: "ID", phone: "Phone", role: "Role");
+      ListModel(name: "Name", pass: "Password", phone: "Phone", role: "Role");
 
   List<ListModel> DoctorList = [
     ListModel(
-        name: "Nada Nasr", id: "2009001", phone: "01015678190", role: "Doctor"),
+        name: "Nada Nasr", pass: "2009001", phone: "01015678190", role: "Doctor"),
     ListModel(
-        name: "Ebtehal Ahmed",
-        id: "2009002",
+        name: "Menna Ehab",
+        pass: "2009002",
         phone: "01015678192",
         role: "Doctor"),
     ListModel(
-        name: "Manar Fawzy",
-        id: "2009003",
-        phone: "01015678193",
+        name: "Ali Samy",
+        pass: "2009003",
+        phone: "01005677563",
         role: "Doctor"),
     ListModel(
-        name: "Rahma Anwar",
-        id: "2009004",
-        phone: "01015678194",
+        name: "Mustafa Saeed",
+        pass: "2009004",
+        phone: "01015678879",
+        role: "Doctor"),
+    ListModel(
+        name: "Ahmed Ali",
+        pass: "2009005",
+        phone: "01005694394",
+        role: "Doctor"),
+    ListModel(
+        name: "Salma Khaled",
+        pass: "2009006",
+        phone: "01013678178",
         role: "Doctor")
   ];
   @override
@@ -246,7 +256,7 @@ class _Doctors extends State<Doctors> {
                             color: Color(0xff000000),
                             fontSize: 36,
                             fontWeight: FontWeight.bold)),
-                    Text(attributes.id,
+                    Text(attributes.pass,
                         style: const TextStyle(
                             color: Color(0xff000000),
                             fontSize: 36,
@@ -295,7 +305,7 @@ class _Doctors extends State<Doctors> {
                                       },
                             ),
                             const SizedBox(width: 160),
-                            Text(item.id,
+                            Text(item.pass,
                                 style: const TextStyle(
                                     color: Color(0xff333333), fontSize: 36)),
                             const SizedBox(width: 200),
@@ -346,20 +356,22 @@ class DrawerListTile extends StatelessWidget {
 class ListModel {
   ListModel(
       {required this.name,
-      required this.id,
+      required this.pass,
       required this.phone,
       required this.role});
 
-  String name, id, phone, role;
+  String name, pass, phone, role;
 }
 
 class MySearchDelegate extends SearchDelegate {
   List suggestions = [
-    "Nada",
-    "Ebtehal",
-    "Manar",
-    "Rahma"
-  ]; //المفروض من الداتابيز
+    "Nada Nasr",
+    "Menna Ehab",
+    "Ali Samy",
+    "Mustafa Saeed",
+    "Ahmed Ali",
+    "Salma Khaled"
+  ]; 
 
   List? filterList;
 

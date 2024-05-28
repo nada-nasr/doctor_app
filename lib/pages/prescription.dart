@@ -1,9 +1,11 @@
 import 'package:doctor_app/pages/Add%20prescription.dart';
 import 'package:doctor_app/pages/addfollow.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Prescription extends StatefulWidget {
-  const Prescription({Key? key}) : super(key: key);
+  const Prescription({super.key});
 
   @override
   State<Prescription> createState() => _PrescriptionState();
@@ -25,11 +27,11 @@ class _PrescriptionState extends State<Prescription> {
                   height: 70,
                   alignment: Alignment.centerRight,
             decoration: BoxDecoration(
-                                border: new Border.all(
+                                border: Border.all(
                                     color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),
+                                borderRadius: BorderRadius.circular(32),
                               ),
           child: Row(mainAxisSize: MainAxisSize.min, children: [
                         const Text("Add prescription",
@@ -61,38 +63,36 @@ class _PrescriptionState extends State<Prescription> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
-              child: Container(
-                width: 330,
-                height: 70,
-                margin: const EdgeInsets.only(right: 20),    
-                alignment: Alignment.centerRight,
+              width: 330,
+              height: 70,
+              margin: const EdgeInsets.only(right: 20),    
+              alignment: Alignment.centerRight,
+              
+              decoration: BoxDecoration(
+                            border: Border.all(
+                                color: const Color(0xff0C8A7D),
+                                width: 2.0,
+                                style: BorderStyle.solid),
+                            borderRadius: BorderRadius.circular(32),
+                          ),
                 
-                decoration: BoxDecoration(
-                              border: new Border.all(
-                                  color: const Color(0xff0C8A7D),
-                                  width: 2.0,
-                                  style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(32),
-                            ),
-                  
-                child: MaterialButton(
-                    child: Row(mainAxisSize: MainAxisSize.min, children: [
-                      const Text("Add follow up ",
-                          style: TextStyle(
-                              color: Color(0xff0C8A7D),
-                              fontSize: 29,
-                              fontWeight: FontWeight.bold)),
-                      Image.asset(
-                        "assets/img/Add22.png",
-                        width: 100,
-                        height: 100,
-                      )
-                    ]),
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const AddFollowUp()));
-                    }),
-              ),
+              child: MaterialButton(
+                  child: Row(mainAxisSize: MainAxisSize.min, children: [
+                    const Text("Add follow up ",
+                        style: TextStyle(
+                            color: Color(0xff0C8A7D),
+                            fontSize: 29,
+                            fontWeight: FontWeight.bold)),
+                    Image.asset(
+                      "assets/img/Add22.png",
+                      width: 100,
+                      height: 100,
+                    )
+                  ]),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const AddFollowUp()));
+                  }),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -104,11 +104,11 @@ class _PrescriptionState extends State<Prescription> {
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                     child: const Text("Doctor name",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 15),)),
                 Container(
@@ -117,11 +117,11 @@ class _PrescriptionState extends State<Prescription> {
                     width: 410,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                     child: const TextField(
                       textAlign: TextAlign.center,
@@ -147,11 +147,11 @@ class _PrescriptionState extends State<Prescription> {
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                     child: const Text("Date",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 17),)),
           
@@ -163,11 +163,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
+                        border: Border.all(
                             color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const TextField(
                         cursorRadius: Radius.zero,
@@ -201,11 +201,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
+                        border: Border.all(
                             color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const TextField(
                         textAlign: TextAlign.center,
@@ -239,11 +239,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 80,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
+                        border: Border.all(
                             color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const TextField(
                         textAlign: TextAlign.center,
@@ -275,11 +275,11 @@ class _PrescriptionState extends State<Prescription> {
                             width: 500,
                             height: 280,
                             decoration: BoxDecoration(
-                              border: new Border.all(
+                              border: Border.all(
                                   color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                             child:
                             SingleChildScrollView(
@@ -372,11 +372,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 299, 
                       height: 280,
                       decoration: BoxDecoration(
-                              border: new Border.all(
+                              border: Border.all(
                                   color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                       child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -415,11 +415,11 @@ class _PrescriptionState extends State<Prescription> {
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                     child: const Text("Doctor name",style: TextStyle(  color: Color(0xff0C8A7D),),)),
                     
@@ -429,11 +429,11 @@ class _PrescriptionState extends State<Prescription> {
                     width: 410,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                     child: const TextField(
                       textAlign: TextAlign.center,
@@ -459,11 +459,11 @@ class _PrescriptionState extends State<Prescription> {
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
                     child: const Text("Date",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 17),)),
           
@@ -475,11 +475,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
+                        border: Border.all(
                             color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const TextField(
                         cursorRadius: Radius.zero,
@@ -513,11 +513,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
+                        border: Border.all(
                             color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const TextField(
                         textAlign: TextAlign.center,
@@ -551,11 +551,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 80,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
+                        border: Border.all(
                             color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const TextField(
                         textAlign: TextAlign.center,
@@ -587,11 +587,11 @@ class _PrescriptionState extends State<Prescription> {
                             width: 500,
                             height: 280,
                             decoration: BoxDecoration(
-                              border: new Border.all(
+                              border: Border.all(
                                   color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                             child:
                             SingleChildScrollView(
@@ -684,11 +684,11 @@ class _PrescriptionState extends State<Prescription> {
                       width: 299, 
                       height: 280,
                       decoration: BoxDecoration(
-                              border: new Border.all(
+                              border: Border.all(
                                   color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                       child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.center,

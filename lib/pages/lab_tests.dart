@@ -45,8 +45,15 @@ class _LabTests extends State<LabTests> {
         patientname: 'Menna Ali',
         doctorname: 'Nada Nasr',
         addedby: 'Mai Samy',
-        date: '19/4',
+        date: '  19/4',
         result: '+ve',
+        action: "action"),
+    ListModel(
+        patientname: 'Mona Said',
+        doctorname: 'Ali Samy',
+        addedby: 'Soha Ayman',
+        date: '21/4',
+        result: '-ve',
         action: "action")
   ];
 
@@ -478,17 +485,17 @@ class _LabTests extends State<LabTests> {
                             Text(item.patientname,
                                 style: const TextStyle(
                                     color: Color(0xff333333), fontSize: 36)),
-                            const SizedBox(width: 95),
+                            const SizedBox(width: 108),
                             Text(item.doctorname,
                                 style: const TextStyle(
                                     color: Color(0xff333333), fontSize: 36)),
-                            const SizedBox(width: 105),
+                            const SizedBox(width: 90),
                             Text(item.addedby,
                                 style: const TextStyle(
                                     color: Color(0xff333333),
                                     fontSize: 36,
                                     fontWeight: FontWeight.normal)),
-                            const SizedBox(width: 145),
+                            const SizedBox(width: 130),
                             Text(item.date,
                                 style: const TextStyle(
                                     color: Color(0xff333333),
@@ -500,7 +507,7 @@ class _LabTests extends State<LabTests> {
                                     color: Color(0xff333333),
                                     fontSize: 36,
                                     fontWeight: FontWeight.normal)),
-                            const SizedBox(width: 120),
+                            const SizedBox(width: 110),
                             Container(
                               child: Row(children: [
                                 MaterialButton(
@@ -590,7 +597,7 @@ class _LabTests extends State<LabTests> {
                                                                         bottom:
                                                                             5),
                                                                 child: const Text(
-                                                                    "Mohamed Nasr",
+                                                                    "Mona Said",
                                                                     style:
                                                                         TextStyle(
                                                                       color: Color(
@@ -690,7 +697,7 @@ class _LabTests extends State<LabTests> {
                                                                         bottom:
                                                                             5),
                                                                 child: const Text(
-                                                                    "1234556",
+                                                                    "2009023",
                                                                     style:
                                                                         TextStyle(
                                                                       color: Color(
@@ -748,7 +755,7 @@ class _LabTests extends State<LabTests> {
                                                                         bottom:
                                                                             5),
                                                                 child: const Text(
-                                                                    "Nada Nasr",
+                                                                    "Ali Samy",
                                                                     style:
                                                                         TextStyle(
                                                                       color: Color(
@@ -793,7 +800,7 @@ class _LabTests extends State<LabTests> {
                                                                       bottom:
                                                                           5),
                                                               child: const Text(
-                                                                  "15/05/2024",
+                                                                  "21/4/2024",
                                                                   style:
                                                                       TextStyle(
                                                                     color: Color(
@@ -848,7 +855,7 @@ class _LabTests extends State<LabTests> {
                                                                         bottom:
                                                                             5),
                                                                 child: const Text(
-                                                                    ".........",
+                                                                    "Yes",
                                                                     style:
                                                                         TextStyle(
                                                                       color: Color(

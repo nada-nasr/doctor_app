@@ -26,9 +26,16 @@ class _Scans extends State<Scans> {
   List<ListModel> Scans = [
     ListModel(
         patientname: 'Menna Ali',
-        doctorname: 'Nada Nasr',
+        doctorname: 'Nada Nasr  ',
         assistantname: 'Mai Samy',
         date: '19/4',
+        cla: 'Yes',
+        action: "action"),
+    ListModel(
+        patientname: 'Mona Said',
+        doctorname: 'Ali Samy',
+        assistantname: 'Soha Ayman',
+        date: '21/4',
         cla: 'Yes',
         action: "action")
   ];
@@ -403,7 +410,7 @@ class _Scans extends State<Scans> {
                                                                       bottom:
                                                                           5),
                                                               child: const Text(
-                                                                  "Mohamed Nasr",
+                                                                  "Menna Ali",
                                                                   style:
                                                                       TextStyle(
                                                                     color: Color(
@@ -501,7 +508,7 @@ class _Scans extends State<Scans> {
                                                                       bottom:
                                                                           5),
                                                               child: const Text(
-                                                                  "1234556",
+                                                                  "2009022",
                                                                   style:
                                                                       TextStyle(
                                                                     color: Color(
@@ -600,7 +607,7 @@ class _Scans extends State<Scans> {
                                                                     top: 5,
                                                                     bottom: 5),
                                                             child: const Text(
-                                                                "15/05/2024",
+                                                                "19/4/2024",
                                                                 style:
                                                                     TextStyle(
                                                                   color: Color(
@@ -654,7 +661,7 @@ class _Scans extends State<Scans> {
                                                                       bottom:
                                                                           5),
                                                               child: const Text(
-                                                                  ".........",
+                                                                  "Yes",
                                                                   style:
                                                                       TextStyle(
                                                                     color: Color(

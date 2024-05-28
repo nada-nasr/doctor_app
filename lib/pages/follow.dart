@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Follow extends StatefulWidget {
-  const Follow({Key? key}) : super(key: key);
+  const Follow({super.key});
 
   @override
   State<Follow> createState() => _FollowState();
@@ -11,14 +11,14 @@ class _FollowState extends State<Follow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-  backgroundColor: Color.fromARGB(255, 220, 255, 251),
+  backgroundColor: const Color.fromARGB(255, 220, 255, 251),
       appBar: AppBar(
-      backgroundColor: Color.fromARGB(255, 220, 255, 251),
+      backgroundColor: const Color.fromARGB(255, 220, 255, 251),
         actions: [
         IconButton(
           onPressed: () {  Navigator.of(context).pop();},
-          icon: Icon(Icons.cancel),
-          color: Color(0xff0C8A7D),
+          icon: const Icon(Icons.cancel),
+          color: const Color(0xff0C8A7D),
           iconSize: 50,
         ),
       ]),
@@ -35,30 +35,30 @@ class _FollowState extends State<Follow> {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 150),
+                    margin: const EdgeInsets.only(left: 150),
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
-                    child: Text("Doctor name",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 15),)),
+                    child: const Text("Doctor name",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 15),)),
                 Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 150),
+                    margin: const EdgeInsets.only(left: 150),
                     width: 410,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
-                    child: TextField(
+                    child: const TextField(
                       textAlign: TextAlign.center,
                       cursorRadius: Radius.zero,
                       cursorColor: Color(0xff0C8A7D),
@@ -78,33 +78,33 @@ class _FollowState extends State<Follow> {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 150, top: 20),
+                    margin: const EdgeInsets.only(left: 150, top: 20),
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
-                    child: Text("Date",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 17),)),
+                    child: const Text("Date",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 17),)),
           
                 Row(
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 160, top: 20),
+                      margin: const EdgeInsets.only(left: 160, top: 20),
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Color(0xff0C8A7D),
+                        border: Border.all(
+                            color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         cursorRadius: Radius.zero,
                         cursorColor: Color(0xff0C8A7D),
                         cursorHeight: 20,
@@ -121,8 +121,8 @@ class _FollowState extends State<Follow> {
                       width: 29,
                       height: 50,
                       alignment: Alignment.bottomCenter,
-                      margin: EdgeInsets.only(left: 20),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 20),
+                      child: const Text(
                         "/",
                         style: TextStyle(
                           fontSize: 50,
@@ -132,17 +132,17 @@ class _FollowState extends State<Follow> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 40, top: 20),
+                      margin: const EdgeInsets.only(left: 40, top: 20),
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Color(0xff0C8A7D),
+                        border: Border.all(
+                            color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         textAlign: TextAlign.center,
                         cursorRadius: Radius.zero,
                         cursorColor: Color(0xff0C8A7D),
@@ -159,8 +159,8 @@ class _FollowState extends State<Follow> {
                       width: 29,
                       height: 50,
                       alignment: Alignment.bottomCenter,
-                      margin: EdgeInsets.only(left: 20),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 20),
+                      child: const Text(
                         "/",
                         style: TextStyle(
                           fontSize: 50,
@@ -170,17 +170,17 @@ class _FollowState extends State<Follow> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 40, top: 20),
+                      margin: const EdgeInsets.only(left: 40, top: 20),
                       width: 80,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Color(0xff0C8A7D),
+                        border: Border.all(
+                            color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         textAlign: TextAlign.center,
                         cursorRadius: Radius.zero,
                         cursorColor: Color(0xff0C8A7D),
@@ -206,62 +206,58 @@ class _FollowState extends State<Follow> {
                     SingleChildScrollView(
                       child: Container(
                           
-                          margin: EdgeInsets.only(left: 90,top: 29),
+                          margin: const EdgeInsets.only(left: 90,top: 29),
                             width: 600,
                             height: 280,
                             decoration: BoxDecoration(
-                              border: new Border.all(
-                                  color: Color(0xff0C8A7D),
+                              border: Border.all(
+                                  color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                             child:
                             SingleChildScrollView(
                               child: Column(children: [ 
-                                SizedBox(height: 20,),
-                                Container(
+                                const SizedBox(height: 20,),
+                                const Row( children: [ 
+                                  SizedBox(width: 20,),
+                                 Text(
+                                "Medicine name",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xff0C8A7D),
+                                ),
+                                                              ),
+                                                              SizedBox(width: 20,),
+                                                   Text(
+                                "Dosage",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xff0C8A7D),
+                                ),
+                                                              ),
+                                                              SizedBox(width: 20,),
+                                                   Text(
+                                "Frequency",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xff0C8A7D),
+                                ),
+                                                              ),
+                                                              SizedBox(width: 20,),
+                                                               Text(
+                                "Duration",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xff0C8A7D),
+                                ),
+                                                              ),
+                                                              SizedBox(width: 10,),
+                                                  
+                                ],
+                                                  
                                   
-                                  
-                                  child: Row( children: [ 
-                                    SizedBox(width: 20,),
-                                   Text(
-                                  "Medicine name",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color(0xff0C8A7D),
-                                  ),
-                                                                ),
-                                                                SizedBox(width: 20,),
-                                                     Text(
-                                  "Dosage",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color(0xff0C8A7D),
-                                  ),
-                                                                ),
-                                                                SizedBox(width: 20,),
-                                                     Text(
-                                  "Frequency",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color(0xff0C8A7D),
-                                  ),
-                                                                ),
-                                                                SizedBox(width: 20,),
-                                                                 Text(
-                                  "Duration",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color(0xff0C8A7D),
-                                  ),
-                                                                ),
-                                                                SizedBox(width: 10,),
-                                                    
-                                  ],
-                                                    
-                                    
-                                  ),
                                 ),
                                 const Divider( height: 40,  color: Color(0xff0C8A7D),),
                                                   Row(
@@ -270,8 +266,8 @@ class _FollowState extends State<Follow> {
                                                     children: [
                                                       
                                                       Container(
-                              margin: EdgeInsets.only(left: 29),
-                              child: Text("Omega",style: TextStyle(fontSize: 20),),),
+                              margin: const EdgeInsets.only(left: 29),
+                              child: const Text("Omega",style: TextStyle(fontSize: 20),),),
                                                     ],
                                                   ),
                                                     const Divider( height: 40,  color: Color(0xff0C8A7D),),
@@ -281,8 +277,8 @@ class _FollowState extends State<Follow> {
                                                     children: [
                                                       
                                                       Container(
-                              margin: EdgeInsets.only(left: 29),
-                              child: Text("Aspirinn",style: TextStyle(fontSize: 20),),),
+                              margin: const EdgeInsets.only(left: 29),
+                              child: const Text("Aspirinn",style: TextStyle(fontSize: 20),),),
                                                     ],
                                                   ),
                                                     const Divider( height: 40,  color: Color(0xff0C8A7D),),
@@ -292,8 +288,8 @@ class _FollowState extends State<Follow> {
                                                     children: [
                                                       
                                                       Container(
-                              margin: EdgeInsets.only(left: 29),
-                              child: Text("Vitamin D",style: TextStyle(fontSize: 20),),),
+                              margin: const EdgeInsets.only(left: 29),
+                              child: const Text("Vitamin D",style: TextStyle(fontSize: 20),),),
         
         
         
@@ -305,19 +301,19 @@ class _FollowState extends State<Follow> {
                             )
                             ),
                     ),
-                    SizedBox(width: 400,),
+                    const SizedBox(width: 400,),
                     Container(
-                        margin: EdgeInsets.only(top: 29),
+                        margin: const EdgeInsets.only(top: 29),
                       width: 299, 
                       height: 280,
                       decoration: BoxDecoration(
-                              border: new Border.all(
-                                  color: Color(0xff0C8A7D),
+                              border: Border.all(
+                                  color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
-                      child: Column(
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [ 
                           Text("Any notes",style: TextStyle(fontSize: 29,  color: Color(0xff0C8A7D),),),
@@ -350,31 +346,31 @@ class _FollowState extends State<Follow> {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 150),
+                    margin: const EdgeInsets.only(left: 150),
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
-                    child: Text("Doctor name",style: TextStyle(  color: Color(0xff0C8A7D),),)),
+                    child: const Text("Doctor name",style: TextStyle(  color: Color(0xff0C8A7D),),)),
                     
                 Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 150),
+                    margin: const EdgeInsets.only(left: 150),
                     width: 410,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
-                    child: TextField(
+                    child: const TextField(
                       textAlign: TextAlign.center,
                       cursorRadius: Radius.zero,
                       cursorColor: Color(0xff0C8A7D),
@@ -394,33 +390,33 @@ class _FollowState extends State<Follow> {
               children: [
                 Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 150, top: 20),
+                    margin: const EdgeInsets.only(left: 150, top: 20),
                     width: 200,
                     height: 50,
                     decoration: BoxDecoration(
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(28),
                     ),
-                    child: Text("Date",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 17),)),
+                    child: const Text("Date",style: TextStyle(  color: Color(0xff0C8A7D),fontSize: 17),)),
           
                 Row(
                   children: [
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 160, top: 20),
+                      margin: const EdgeInsets.only(left: 160, top: 20),
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Color(0xff0C8A7D),
+                        border: Border.all(
+                            color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         cursorRadius: Radius.zero,
                         cursorColor: Color(0xff0C8A7D),
                         cursorHeight: 20,
@@ -437,8 +433,8 @@ class _FollowState extends State<Follow> {
                       width: 29,
                       height: 50,
                       alignment: Alignment.bottomCenter,
-                      margin: EdgeInsets.only(left: 20),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 20),
+                      child: const Text(
                         "/",
                         style: TextStyle(
                           fontSize: 50,
@@ -448,17 +444,17 @@ class _FollowState extends State<Follow> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 40, top: 20),
+                      margin: const EdgeInsets.only(left: 40, top: 20),
                       width: 60,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Color(0xff0C8A7D),
+                        border: Border.all(
+                            color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         textAlign: TextAlign.center,
                         cursorRadius: Radius.zero,
                         cursorColor: Color(0xff0C8A7D),
@@ -475,8 +471,8 @@ class _FollowState extends State<Follow> {
                       width: 29,
                       height: 50,
                       alignment: Alignment.bottomCenter,
-                      margin: EdgeInsets.only(left: 20),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 20),
+                      child: const Text(
                         "/",
                         style: TextStyle(
                           fontSize: 50,
@@ -486,17 +482,17 @@ class _FollowState extends State<Follow> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 40, top: 20),
+                      margin: const EdgeInsets.only(left: 40, top: 20),
                       width: 80,
                       height: 40,
                       decoration: BoxDecoration(
-                        border: new Border.all(
-                            color: Color(0xff0C8A7D),
+                        border: Border.all(
+                            color: const Color(0xff0C8A7D),
                             width: 2.0,
                             style: BorderStyle.solid),
-                        borderRadius: new BorderRadius.circular(6),
+                        borderRadius: BorderRadius.circular(6),
                       ),
-                      child: TextField(
+                      child: const TextField(
                         textAlign: TextAlign.center,
                         cursorRadius: Radius.zero,
                         cursorColor: Color(0xff0C8A7D),
@@ -522,21 +518,21 @@ class _FollowState extends State<Follow> {
                     SingleChildScrollView(
                       child: Container(
                           
-                          margin: EdgeInsets.only(left: 90,top: 29),
+                          margin: const EdgeInsets.only(left: 90,top: 29),
                             width: 600,
                             height: 280,
                             decoration: BoxDecoration(
-                              border: new Border.all(
-                                  color: Color(0xff0C8A7D),
+                              border: Border.all(
+                                  color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
                             child:
                             SingleChildScrollView(
                               child: Column(children: [ 
-                                SizedBox(height: 20,),
-                                Row( children: [ 
+                                const SizedBox(height: 20,),
+                                const Row( children: [ 
                                   SizedBox(width: 20,),
                                  Text(
                                 "Medicine name",
@@ -582,8 +578,8 @@ class _FollowState extends State<Follow> {
                                                     children: [
                                                       
                                                       Container(
-                              margin: EdgeInsets.only(left: 29),
-                              child: Text("Omega",style: TextStyle(fontSize: 20),),),
+                              margin: const EdgeInsets.only(left: 29),
+                              child: const Text("Omega",style: TextStyle(fontSize: 20),),),
                                                     ],
                                                   ),
                                                     const Divider( height: 40,  color: Color(0xff0C8A7D),),
@@ -593,8 +589,8 @@ class _FollowState extends State<Follow> {
                                                     children: [
                                                       
                                                       Container(
-                              margin: EdgeInsets.only(left: 29),
-                              child: Text("Aspirinn",style: TextStyle(fontSize: 20),),),
+                              margin: const EdgeInsets.only(left: 29),
+                              child: const Text("Aspirinn",style: TextStyle(fontSize: 20),),),
                                                     ],
                                                   ),
                                                 const Divider( height: 40,  color: Color(0xff0C8A7D),),
@@ -604,8 +600,8 @@ class _FollowState extends State<Follow> {
                                                     children: [
                                                       
                                                       Container(
-                              margin: EdgeInsets.only(left: 29),
-                              child: Text("Vitamin D",style: TextStyle(fontSize: 20),),),
+                              margin: const EdgeInsets.only(left: 29),
+                              child: const Text("Vitamin D",style: TextStyle(fontSize: 20),),),
         
         
         
@@ -617,19 +613,19 @@ class _FollowState extends State<Follow> {
                             )
                             ),
                     ),
-                    SizedBox(width: 400,),
+                    const SizedBox(width: 400,),
                     Container(
-                        margin: EdgeInsets.only(top: 29),
+                        margin: const EdgeInsets.only(top: 29),
                       width: 299, 
                       height: 280,
                       decoration: BoxDecoration(
-                              border: new Border.all(
-                                  color: Color(0xff0C8A7D),
+                              border: Border.all(
+                                  color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
-                      child: Column(
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [ 
                           Text("Any notes",style: TextStyle(fontSize: 29,  color: Color(0xff0C8A7D),),),

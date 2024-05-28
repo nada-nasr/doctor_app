@@ -24,11 +24,25 @@ class _Reports extends State<Reports> {
       AssistantName: 'Assistant');
   List<ListModel> Reports = [
     ListModel(
-        PatientName: "Ahmed Ali",
+        PatientName: "Menna Ali ",
         date: '19/4',
-        ConcernedAuthority: 'ITI',
+        ConcernedAuthority: 'Petro Company',
         DoctorName: 'Nada Nasr',
-        AssistantName: 'menna Ali')
+        AssistantName: 'Heba Mohamed'),
+    ListModel(
+        PatientName: "Asma Nasr",
+        date: '20/4',
+        ConcernedAuthority: 'PTSC Company',
+        DoctorName: 'Menna Ehab',
+        AssistantName: 'menna Ali'),
+    ListModel(
+        PatientName: 'Mona Said',
+        date: '21/4',
+        ConcernedAuthority: 'CPC Company   ',
+        DoctorName: 'Ali Samy    ',
+        AssistantName: 'Soha Ayman',
+        
+        )
   ];
   @override
   Widget build(BuildContext context) {
@@ -250,7 +264,7 @@ class _Reports extends State<Reports> {
                     child: Row(
                         //mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          const SizedBox(width: 70),
+                          const SizedBox(width: 50),
                           Text(attributes.PatientName,
                               style: const TextStyle(
                                   color: Color(0xff000000),
@@ -262,19 +276,19 @@ class _Reports extends State<Reports> {
                                   color: Color(0xff000000),
                                   fontSize: 36,
                                   fontWeight: FontWeight.bold)),
-                          const SizedBox(width: 105),
+                          const SizedBox(width: 98),
                           Text(attributes.ConcernedAuthority,
                               style: const TextStyle(
                                   color: Color(0xff000000),
                                   fontSize: 36,
                                   fontWeight: FontWeight.bold)),
-                          const SizedBox(width: 110),
+                          const SizedBox(width: 100),
                           Text(attributes.DoctorName,
                               style: const TextStyle(
                                   color: Color(0xff000000),
                                   fontSize: 36,
                                   fontWeight: FontWeight.bold)),
-                          const SizedBox(width: 120),
+                          const SizedBox(width: 140),
                           Text(attributes.AssistantName,
                               style: const TextStyle(
                                   color: Color(0xff000000),
@@ -297,7 +311,7 @@ class _Reports extends State<Reports> {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(children: [
-                            const SizedBox(width: 80),
+                            const SizedBox(width: 60),
                             Text(item.PatientName,
                                 style: const TextStyle(
                                     color: Color(0xff000000), fontSize: 36)),
@@ -305,11 +319,11 @@ class _Reports extends State<Reports> {
                             Text(item.date,
                                 style: const TextStyle(
                                     color: Color(0xff000000), fontSize: 36)),
-                            const SizedBox(width: 270),
+                            const SizedBox(width: 120),
                             Text(item.ConcernedAuthority,
                                 style: const TextStyle(
                                     color: Color(0xff000000), fontSize: 36)),
-                            const SizedBox(width: 240),
+                            const SizedBox(width: 150),
                             Text(item.DoctorName,
                                 style: const TextStyle(
                                     color: Color(0xff000000), fontSize: 36)),
@@ -351,12 +365,7 @@ class DrawerListTile extends StatelessWidget {
 }
 
 class MySearchDelegate extends SearchDelegate {
-  List suggestions = [
-    "Ahmed Ali",
-    "Ebtehal",
-    "Manar",
-    "Rahma"
-  ]; //المفروض من الداتابيز
+  List suggestions = []; 
 
   List? filterList;
 

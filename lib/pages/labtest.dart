@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LabTest extends StatefulWidget {
-  const LabTest({Key? key}) : super(key: key);
+  const LabTest({super.key});
 
   @override
   State<LabTest> createState() => _LabTestState();
@@ -453,9 +453,9 @@ class _LabTestState extends State<LabTest> {
                                           fontSize: 29, color: Colors.black),
                                     ),
                                     const SizedBox(width: 5),
-                                    Container(
+                                    const SizedBox(
                                       width: 50,
-                                      child: const Text(
+                                      child: Text(
                                         "Normal",
                                         style: TextStyle(
                                             fontSize: 14, color: Colors.black),
@@ -710,7 +710,7 @@ class _LabTestState extends State<LabTest> {
             height: 40,
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 600,
               child: Row(
                 children: [
@@ -718,7 +718,7 @@ class _LabTestState extends State<LabTest> {
                     width: 150,
                     decoration: BoxDecoration(
                       color: const Color(0xff0C8A7D),
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
@@ -740,11 +740,11 @@ class _LabTestState extends State<LabTest> {
                     margin: const EdgeInsets.only(right: 5),
                     decoration: BoxDecoration(
                       color: const Color(0xffFFFFFF),
-                      border: new Border.all(
+                      border: Border.all(
                           color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(32),
                     ),
                   )
                 ],

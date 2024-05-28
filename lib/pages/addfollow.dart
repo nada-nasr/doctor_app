@@ -1,7 +1,9 @@
+// ignore_for_file: avoid_unnecessary_containers, non_constant_identifier_names, avoid_print
+
 import 'package:flutter/material.dart';
 
 class AddFollowUp extends StatefulWidget {
-  const AddFollowUp({Key? key}) : super(key: key);
+  const AddFollowUp({super.key});
 
   @override
   State<AddFollowUp> createState() => _AddprescriptionState();
@@ -63,7 +65,7 @@ class _AddprescriptionState extends State<AddFollowUp> {
       Container( 
         width: 100,
 height: 80,
-        decoration: BoxDecoration( 
+        decoration: const BoxDecoration( 
           shape: BoxShape.circle,
               color: Color(0xff0C8A7D),
         ),
@@ -85,7 +87,7 @@ height: 80,
                                       
                                       child: IconButton(
                                           icon: const Icon(Icons.clear),
-                                          color: Color(0xff0C8A7D),
+                                          color: const Color(0xff0C8A7D),
                                           iconSize: 30,
                                           onPressed: () {
                                             Navigator.of(context).pop();
@@ -99,11 +101,11 @@ height: 80,
                                         margin: const EdgeInsets.only(right: 5),
                                         decoration: BoxDecoration(
                                             color: const Color(0xffFFFFFF),
-                                                    border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                    border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                         child: const Text("Medicine",
                                             style: TextStyle(
                                                     color: Color(0xff0C8A7D),
@@ -118,11 +120,11 @@ height: 80,
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                               color: const Color(0xffFFFFFF),
-                                                      border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                      border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                           child: Form(
                                             key: formstate2,
                                             child: TextFormField(
@@ -151,11 +153,11 @@ height: 80,
                                         margin: const EdgeInsets.only(right: 5),
                                         decoration: BoxDecoration(
                                             color: const Color(0xffFFFFFF),
-                                                    border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                    border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                         child: const Text("Dosage",
                                             style: TextStyle(
                                                     color: Color(0xff0C8A7D),
@@ -170,11 +172,11 @@ height: 80,
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                               color: const Color(0xffFFFFFF),
-                                                      border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                      border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                           child: Form(
                                             key: formstate3,
                                             child: TextFormField(
@@ -203,11 +205,11 @@ height: 80,
                                         margin: const EdgeInsets.only(right: 5),
                                         decoration: BoxDecoration(
                                             color: const Color(0xffFFFFFF),
-                                                    border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                    border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                         child: const Text("Frequency",
                                             style: TextStyle(
                                                     color: Color(0xff0C8A7D),
@@ -222,11 +224,11 @@ height: 80,
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                               color: const Color(0xffFFFFFF),
-                                                      border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                      border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                           child: Form(
                                             key: formstate4,
                                             child: TextFormField(
@@ -255,11 +257,11 @@ height: 80,
                                         margin: const EdgeInsets.only(right: 5),
                                         decoration: BoxDecoration(
                                             color: const Color(0xffFFFFFF),
-                                            border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                            border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),                                        child: const Text("Duration",
+                                borderRadius: BorderRadius.circular(32),),                                        child: const Text("Duration",
                                             style: TextStyle(
                                                     color: Color(0xff0C8A7D),
                                                 fontSize: 30,
@@ -273,11 +275,11 @@ height: 80,
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                               color: const Color(0xffFFFFFF),
-                                                      border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                                                      border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                           child: Form(
                                             key: formstate5,
                                             child: TextFormField(
@@ -302,7 +304,7 @@ height: 80,
                                     Row(
                                         mainAxisAlignment:MainAxisAlignment.center,
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             width: 150,
                                             child: MaterialButton(
                                                 color: const Color(0xffFFFFFF),
@@ -318,71 +320,40 @@ height: 80,
                                                             FontWeight.bold),
                                                     textAlign: TextAlign.center),
                                                 onPressed: () {
-                                                  if (formstate1.currentState!
-                                                      .validate()) {
-                                                    print("valid");
-                                                  } else {
-                                                    print("not valid");
-                                                  }
-                                                  if (formstate2.currentState!
-                                                      .validate()) {
-                                                    print("valid");
-                                                  } else {
-                                                    print("not valid");
-                                                  }
-                                                  if (formstate3.currentState!
-                                                      .validate()) {
-                                                    print("valid");
-                                                  } else {
-                                                    print("not valid");
-                                                  }
-                                                  if (formstate4.currentState!
-                                                      .validate()) {
-                                                    print("valid");
-                                                  } else {
-                                                    print("not valid");
-                                                  }
-                                                  if (formstate5.currentState!
-                                                      .validate()) {
-                                                    print("valid");
-                                                  } else {
-                                                    print("not valid");
-                                                  }
-                     
-                                                  /*String name =
-                                                      nameController.text.trim();
-                                                  String id =
-                                                      idController.text.trim();
-                                                  String phone =
-                                                      phoneController.text.trim();
-                                                  String email =
-                                                      emailController.text.trim();
-                                                  String role =
-                                                      roleController.text.trim();
-                                                  if (name.isNotEmpty &&
-                                                      id.isNotEmpty &&
-                                                      phone.isNotEmpty &&
-                                                      email.isNotEmpty &&
-                                                      role.isNotEmpty) {
-                                                    setState(() {
-                                                      nameController.text = '';
-                                                      idController.text = '';
-                                                      phoneController.text = '';
-                                                      emailController.text = '';
-                                                      roleController.text = '';
-                                                      DoctorList.add(
-                                                          CheckBoxModel(
-                                                              name: name,
-                                                              id: id,
-                                                              phone: phone,
-                                                              role: role,
-                                                              action: email));
-                                                    });
-                                                  }*/
+                                                  if (formstate1.currentState != null && formstate1.currentState!.validate()) {
+  print("formstate1 is valid");
+} else {
+  print("formstate1 is not valid");
+}
+
+if (formstate2.currentState != null && formstate2.currentState!.validate()) {
+  print("formstate2 is valid");
+} else {
+  print("formstate2 is not valid");
+}
+
+if (formstate3.currentState != null && formstate3.currentState!.validate()) {
+  print("formstate3 is valid");
+} else {
+  print("formstate3 is not valid");
+}
+
+if (formstate4.currentState != null && formstate4.currentState!.validate()) {
+  print("formstate4 is valid");
+} else {
+  print("formstate4 is not valid");
+}
+
+if (formstate5.currentState != null && formstate5.currentState!.validate()) {
+  print("formstate5 is valid");
+} else {
+  print("formstate5 is not valid");
+}
+
                                                 }),
                                           ),
                                           const SizedBox(width: 40,),
-                                          Container(
+                                          SizedBox(
                                             width: 150,
                                             child: MaterialButton(
                                                 color: const Color(0xffFFFFFF),
@@ -413,32 +384,32 @@ height: 80,
                          
     
         
-      }, icon: Icon(Icons.add),color: Colors.white,
+      }, icon: const Icon(Icons.add),color: Colors.white,
       iconSize: 50,
       ),
       ),
-      backgroundColor: Color.fromARGB(255, 220, 255, 251),
+      backgroundColor: const Color.fromARGB(255, 220, 255, 251),
       body: SingleChildScrollView(
         child: Column(mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start
         , children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 50,
               ),
               IconButton(onPressed: (){
                 Navigator.of(context).pop();
-              }, icon: Icon(Icons.arrow_back,size: 40,color: Color(0xff0C8A7D),)),
+              }, icon: const Icon(Icons.arrow_back,size: 40,color: Color(0xff0C8A7D),)),
               Image.asset(
                 "assets/img/nephrologist 11.png",
                 width: 60,
                 height: 60,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Container(
@@ -447,13 +418,13 @@ height: 80,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
                   
-                    border: new Border.all(
-                        color: Color(0xff0C8A7D),
+                    border: Border.all(
+                        color: const Color(0xff0C8A7D),
                         width: 2.0,
                         style: BorderStyle.solid),
-                    borderRadius: new BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(32),
                   ),
-                  child: TextField(
+                  child: const TextField(
                     textAlign: TextAlign.center,
                     cursorRadius: Radius.zero,
                     cursorColor: Color(0xff0C8A7D),
@@ -469,7 +440,7 @@ height: 80,
             height: 20,
             color: Color(0xff0C8A7D),
           ),
-          SizedBox(
+          const SizedBox(
             height: 150,
           ),
           Row(
@@ -478,35 +449,35 @@ height: 80,
             children: [
               Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(left: 150),
+                  margin: const EdgeInsets.only(left: 150),
                   width: 200,
                   height: 50,
                   decoration: BoxDecoration(
                 
-                    border: new Border.all(
-                        color: Color(0xff0C8A7D),
+                    border: Border.all(
+                        color: const Color(0xff0C8A7D),
                         width: 2.0,
                         style: BorderStyle.solid),
-                    borderRadius: new BorderRadius.circular(28),
+                    borderRadius: BorderRadius.circular(28),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Doctor name",
                     style: TextStyle(color: Color(0xff0C8A7D), fontSize: 15),
                   )),
               Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(left: 150),
+                  margin: const EdgeInsets.only(left: 150),
                   width: 410,
                   height: 50,
                   decoration: BoxDecoration(
               
-                    border: new Border.all(
-                        color: Color(0xff0C8A7D),
+                    border: Border.all(
+                        color: const Color(0xff0C8A7D),
                         width: 2.0,
                         style: BorderStyle.solid),
-                    borderRadius: new BorderRadius.circular(28),
+                    borderRadius: BorderRadius.circular(28),
                   ),
-                  child: TextField(
+                  child: const TextField(
                     textAlign: TextAlign.center,
                     cursorRadius: Radius.zero,
                     cursorColor: Color(0xff0C8A7D),
@@ -526,18 +497,18 @@ height: 80,
             children: [
               Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(left: 150, top: 20),
+                  margin: const EdgeInsets.only(left: 150, top: 20),
                   width: 200,
                   height: 50,
                   decoration: BoxDecoration(
                 
-                    border: new Border.all(
-                        color: Color(0xff0C8A7D),
+                    border: Border.all(
+                        color: const Color(0xff0C8A7D),
                         width: 2.0,
                         style: BorderStyle.solid),
-                    borderRadius: new BorderRadius.circular(28),
+                    borderRadius: BorderRadius.circular(28),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Date",
                     style: TextStyle(color: Color(0xff0C8A7D), fontSize: 17),
                   )),
@@ -545,18 +516,18 @@ height: 80,
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 160, top: 20),
+                    margin: const EdgeInsets.only(left: 160, top: 20),
                     width: 60,
                     height: 40,
                     decoration: BoxDecoration(
                   
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                    child: TextField(
+                    child: const TextField(
                       cursorRadius: Radius.zero,
                       cursorColor: Color(0xff0C8A7D),
                       cursorHeight: 20,
@@ -574,8 +545,8 @@ height: 80,
                     height: 50,
                 
                     alignment: Alignment.bottomCenter,
-                    margin: EdgeInsets.only(left: 20),
-                    child: Text(
+                    margin: const EdgeInsets.only(left: 20),
+                    child: const Text(
                       "/",
                       style: TextStyle(
                         fontSize: 50,
@@ -585,18 +556,18 @@ height: 80,
                   ),
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 40, top: 20),
+                    margin: const EdgeInsets.only(left: 40, top: 20),
                     width: 60,
                     height: 40,
                     decoration: BoxDecoration(
                   
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                    child: TextField(
+                    child: const TextField(
                       textAlign: TextAlign.center,
                       cursorRadius: Radius.zero,
                       cursorColor: Color(0xff0C8A7D),
@@ -614,8 +585,8 @@ height: 80,
                     height: 50,
                   
                     alignment: Alignment.bottomCenter,
-                    margin: EdgeInsets.only(left: 20),
-                    child: Text(
+                    margin: const EdgeInsets.only(left: 20),
+                    child: const Text(
                       "/",
                       style: TextStyle(
                         fontSize: 50,
@@ -625,18 +596,18 @@ height: 80,
                   ),
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(left: 40, top: 20),
+                    margin: const EdgeInsets.only(left: 40, top: 20),
                     width: 80,
                     height: 40,
                     decoration: BoxDecoration(
                     
-                      border: new Border.all(
-                          color: Color(0xff0C8A7D),
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
                           width: 2.0,
                           style: BorderStyle.solid),
-                      borderRadius: new BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                    child: TextField(
+                    child: const TextField(
                       textAlign: TextAlign.center,
                       cursorRadius: Radius.zero,
                       cursorColor: Color(0xff0C8A7D),
@@ -659,19 +630,19 @@ height: 80,
             children: [
 
               Container(
-                margin: EdgeInsets.only(left: 90, top: 29),
+                margin: const EdgeInsets.only(left: 90, top: 29),
                 width: 600,
                 height: 250,
                 decoration: BoxDecoration(
               
-                  border: new Border.all(
-                      color: Color(0xff0C8A7D),
+                  border: Border.all(
+                      color: const Color(0xff0C8A7D),
                       width: 1.0,
                       style: BorderStyle.solid),
-                  borderRadius: new BorderRadius.circular(6),
+                  borderRadius: BorderRadius.circular(6),
                 ),
                 child: Column(children: [
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   SingleChildScrollView(
                 
                     child: Row(
@@ -719,7 +690,7 @@ height: 80,
                          children: [
               
                            Container(
-                            margin: EdgeInsets.only(left: 32),
+                            margin: const EdgeInsets.only(left: 32),
                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -767,7 +738,7 @@ height: 80,
                          children: [
               
                            Container(
-                            margin: EdgeInsets.only(left: 32),
+                            margin: const EdgeInsets.only(left: 32),
                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -815,7 +786,7 @@ height: 80,
                          children: [
               
                            Container(
-                            margin: EdgeInsets.only(left: 32),
+                            margin: const EdgeInsets.only(left: 32),
                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -865,20 +836,20 @@ height: 80,
                       ]),
                     ),
                 ]),),
-SizedBox(width: 400,),
+const SizedBox(width: 400,),
                     Container(
-                        margin: EdgeInsets.only(top: 29),
+                        margin: const EdgeInsets.only(top: 29),
                       width: 299, 
                       height: 250,
                       decoration: BoxDecoration(
                 
-                              border: new Border.all(
-                                  color: Color(0xff0C8A7D),
+                              border: Border.all(
+                                  color: const Color(0xff0C8A7D),
                                   width: 2.0,
                                   style: BorderStyle.solid),
-                              borderRadius: new BorderRadius.circular(6),
+                              borderRadius: BorderRadius.circular(6),
                             ),
-                      child: Column(
+                      child: const Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [ 
                           Text("Any notes",style: TextStyle(fontSize: 29,  color: Color(0xff0C8A7D),),),
@@ -914,13 +885,13 @@ SizedBox(width: 400,),
             height: 40,
                decoration: BoxDecoration( 
                     color: Colors.white,
-                          border: new Border.all(
-                                    color: Color(0xff0C8A7D),
+                          border: Border.all(
+                                    color: const Color(0xff0C8A7D),
                                     width: 2.0,
                                     style: BorderStyle.solid),
-                                borderRadius: new BorderRadius.circular(32),),
+                                borderRadius: BorderRadius.circular(32),),
                                     
-                                    child: Text("Save",style: TextStyle(    color:Colors.black,fontSize: 20,fontWeight: FontWeight.bold)
+                                    child: const Text("Save",style: TextStyle(    color:Colors.black,fontSize: 20,fontWeight: FontWeight.bold)
                                     
                                     ,),
                                     ),

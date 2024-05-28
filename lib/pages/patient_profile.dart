@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, unused_import, unused_element, camel_case_types, unused_field, no_leading_underscores_for_local_identifiers, avoid_unnecessary_containers, non_constant_identifier_names, duplicate_ignore, must_be_immutable, avoid_print
+
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -6,6 +8,7 @@ import 'package:doctor_app/pages/generate_report.dart';
 import 'package:doctor_app/pages/prescription.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -18,6 +21,114 @@ class patient_profile extends StatefulWidget {
   @override
   State<patient_profile> createState() => _HistState();
 }
+
+String groupValue = "Normal";
+  String groupValue1 = "Normal";
+  String groupValue3 = "good";
+  String groupValue4 = "Present";
+  String groupValue5 = "Yes";
+  String groupValue6 = "Yes";
+  String groupValue7 = "Yes";
+  String groupValue8 = "Yes";
+  String groupValue9 = "Yes";
+
+  String groupValue10 = "Present";
+
+int selectedIndex = -1;
+  int index = 0;
+  TextEditingController medicationnameController = TextEditingController();
+  TextEditingController dosageformController = TextEditingController();
+  TextEditingController manufacturerController = TextEditingController();
+  TextEditingController genericnameController = TextEditingController();
+  TextEditingController therapeuticController = TextEditingController();
+
+  GlobalKey<FormState> formstate1 = GlobalKey();
+  GlobalKey<FormState> formstate2 = GlobalKey();
+  GlobalKey<FormState> formstate3 = GlobalKey();
+  GlobalKey<FormState> formstate4 = GlobalKey();
+  GlobalKey<FormState> formstate5 = GlobalKey();
+  GlobalKey<FormState> formstate6 = GlobalKey();
+  GlobalKey<FormState> formstate7 = GlobalKey();
+  GlobalKey<FormState> formstate8 = GlobalKey();
+  GlobalKey<FormState> formstate9 = GlobalKey();
+  GlobalKey<FormState> formstate10 = GlobalKey();
+  GlobalKey<FormState> formstate11 = GlobalKey();
+  GlobalKey<FormState> formstate12 = GlobalKey();
+
+  final attributes = ListModel(
+      PEMO: 'PEMO',
+      PCV: 'PCV',
+      WBC: 'WBC',
+      BP: 'BP',
+      BGR: 'BGR',
+      BU: 'BU',
+      SC: 'SC',
+      SOD: 'SOD',
+      SG: 'SG',
+      AL: 'AL',
+      SU: 'SU',
+      POT: 'POT',
+      RBC: 'RBC',
+      PC: 'PC',
+      PCC: 'PCC',
+      BA: 'BA',
+      HTN: 'HTN',
+      DM: 'DM',
+      CAD: 'CAD',
+      PE: "PE",
+      ANE: "ANE",
+      APPET: 'APPET');
+
+      class ListModel {
+  ListModel({
+    required this.PEMO,
+    required this.PCV,
+    required this.WBC,
+    required this.BP,
+    required this.BGR,
+    required this.BU,
+    required this.SC,
+    required this.SOD,
+    required this.SU,
+    required this.SG,
+    required this.AL,
+    required this.POT,
+    required this.ANE,
+    required this.APPET,
+    required this.BA,
+    required this.CAD,
+    required this.DM,
+    required this.HTN,
+    required this.PC,
+    required this.PCC,
+    required this.PE,
+    required this.RBC,
+  });
+
+  String PEMO,
+      PCV,
+      WBC,
+      BP,
+      BGR,
+      BU,
+      SC,
+      SOD,
+      SG,
+      AL,
+      SU,
+      POT,
+      RBC,
+      PC,
+      PCC,
+      BA,
+      HTN,
+      DM,
+      CAD,
+      PE,
+      ANE,
+      APPET;
+}
+
 
 class _HistState extends State<patient_profile> {
   late List<_ChartData> data;
@@ -72,7 +183,6 @@ class _HistState extends State<patient_profile> {
     }
   }
 
-  
   @override
   Widget build(BuildContext context) {
     final List<Chartdata> chartData = <Chartdata>[
@@ -241,77 +351,73 @@ class _HistState extends State<patient_profile> {
                               ))),
                       // Contact information
                       Container(
-                        margin: const EdgeInsets.only(
-                            left: 15, right: 15, bottom: 15),
-                        child: Material(
-                            elevation: 3,
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            shadowColor: const Color.fromARGB(255, 0, 0, 0),
-                            borderRadius: BorderRadius.circular(10),
-                            child: Container(
+                          margin: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Material(
+                              elevation: 3,
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              shadowColor: const Color.fromARGB(255, 0, 0, 0),
+                              borderRadius: BorderRadius.circular(10),
+                              child: Container(
                                 padding: const EdgeInsets.only(
                                     top: 10, left: 5, bottom: 4),
                                 height: 180,
                                 width: 300,
-                                child: Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const SharedColorTextCADBold(
-                                          text: "Contact information ",
-                                          fontSize: 20),
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            "images/Phone.png",
-                                            width: 25,
-                                            height: 25,
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          const SharedColorTextCADnormal(
-                                              text: "Phone Contact ",
-                                              fontSize: 16)
-                                        ],
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(
-                                            left: 30, bottom: 5),
-                                        child: const SharedColorTextblack(
-                                            text: "+2011184521", fontSize: 14),
-                                      ),
-                                      Container(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SharedColorTextCADBold(
+                                        text: "Contact information ",
+                                        fontSize: 20),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "images/Phone.png",
+                                          width: 25,
+                                          height: 25,
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        const SharedColorTextCADnormal(
+                                            text: "Phone Contact ",
+                                            fontSize: 16)
+                                      ],
+                                    ),
+                                    Container(
+                                      margin: const EdgeInsets.only(
+                                          left: 30, bottom: 5),
+                                      child: const SharedColorTextblack(
+                                          text: "+2011184521", fontSize: 14),
+                                    ),
+                                    Container(
+                                      margin: const EdgeInsets.only(left: 30),
+                                      child: const SharedColorTextblack(
+                                          text: "+2011184521", fontSize: 14),
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "images/Email.png",
+                                          width: 25,
+                                          height: 25,
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        const SharedColorTextCADnormal(
+                                            text: "E-mail ", fontSize: 16)
+                                      ],
+                                    ),
+                                    Container(
                                         margin: const EdgeInsets.only(left: 30),
                                         child: const SharedColorTextblack(
-                                            text: "+2011184521", fontSize: 14),
-                                      ),
-                                      const SizedBox(height: 10),
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            "images/Email.png",
-                                            width: 25,
-                                            height: 25,
-                                          ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          const SharedColorTextCADnormal(
-                                              text: "E-mail ", fontSize: 16)
-                                        ],
-                                      ),
-                                      Container(
-                                          margin:
-                                              const EdgeInsets.only(left: 30),
-                                          child: const SharedColorTextblack(
-                                              text: "fghybhghx85@gmail.com",
-                                              fontSize: 14)),
-                                    ],
-                                  ),
-                                ))),
-                      ),
+                                            text: "fghybhghx85@gmail.com",
+                                            fontSize: 14)),
+                                  ],
+                                ),
+                              ))),
                     ],
                   ),
                 ),
@@ -737,16 +843,22 @@ class _HistState extends State<patient_profile> {
                                                                                       ],
                                                                                     )),
                                                                                   )),
-                                                                              IconButton(
-                                                                                color: const Color(0xff0C8A7D),
-                                                                                // color: Color.fromARGB(255, 254, 255, 255),
-
-                                                                                onPressed: () {
-                                                                                  // add test page
-                                                                                },
-                                                                                icon: const Icon(Icons.add_circle),
-                                                                                iconSize: 80,
-                                                                              )
+                                                                                  AddTest()
+                                                                              // Assuming this IconButton is within a valid parent widget
+                                                                              // Container(
+                                                                              //   child: IconButton(
+                                                                              //     color: const Color(0xff0C8A7D),
+                                                                              //     onPressed: () {
+                                                                              //       // Navigate to add test page
+                                                                              //       // Navigator.of(context).push(
+                                                                              //       // MaterialPageRoute(builder: (context) => const AddTest()),
+                                                                              //       // );
+                                                                              //       _AddTestState();
+                                                                              //     },
+                                                                              //     icon: const Icon(Icons.add_circle),
+                                                                              //     iconSize: 80,
+                                                                              //   ),
+                                                                              // )
                                                                             ],
                                                                           )
                                                                         ]),
@@ -822,112 +934,115 @@ class _HistState extends State<patient_profile> {
                                                                                               content: Container(
                                                                                                 // height: 300,
                                                                                                 child: SingleChildScrollView(
-                                                                                                  scrollDirection: Axis.horizontal,
-                                                                                                  child: Column(
-                                                                                                    children: [
-                                                                                                      Container(
-                                                                                                          margin: const EdgeInsets.all(10),
-                                                                                                          child: Row(
-                                                                                                            children: [
-                                                                                                              Container(
-                                                                                                                width: 200,
-                                                                                                                height: 60,
-                                                                                                                margin: const EdgeInsets.only(right: 8),
-                                                                                                                alignment: Alignment.center,
-                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                                child: const SharedColorTextCADnormal(text: "Patient name", fontSize: 26),
-                                                                                                              ),
-                                                                                                              Container(
-                                                                                                                width: 300,
-                                                                                                                height: 60,
-                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                                // child: Text("data"),
-                                                                                                              )
-                                                                                                            ],
-                                                                                                          )),
-                                                                                                      Container(
-                                                                                                          margin: const EdgeInsets.all(10),
-                                                                                                          child: Row(
-                                                                                                            children: [
-                                                                                                              Container(
-                                                                                                                width: 200,
-                                                                                                                height: 60,
-                                                                                                                margin: const EdgeInsets.only(right: 8),
-                                                                                                                alignment: Alignment.center,
-                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                                child: const SharedColorTextCADnormal(text: "Doctor name", fontSize: 26),
-                                                                                                              ),
-                                                                                                              Container(
-                                                                                                                width: 300,
-                                                                                                                height: 60,
-                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                                // child: Text("data"),
-                                                                                                              )
-                                                                                                            ],
-                                                                                                          )),
-                                                                                                      Container(
-                                                                                                          margin: const EdgeInsets.all(10),
-                                                                                                          child: Row(
-                                                                                                            children: [
-                                                                                                              Container(
-                                                                                                                width: 200,
-                                                                                                                height: 60,
-                                                                                                                margin: const EdgeInsets.only(right: 8),
-                                                                                                                alignment: Alignment.center,
-                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                                child: const SharedColorTextCADnormal(text: "Assistant name", fontSize: 26),
-                                                                                                              ),
-                                                                                                              Container(
-                                                                                                                width: 300,
-                                                                                                                height: 60,
-                                                                                                                decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
-                                                                                                                // child: Text("data"),
-                                                                                                              )
-                                                                                                            ],
-                                                                                                          )),
-                                                                                                      Container(
-                                                                                                        height: 280,
-                                                                                                        width: 550,
-                                                                                                        margin: const EdgeInsets.only(bottom: 5),
-                                                                                                        child: MaterialButton(
-                                                                                                          padding: const EdgeInsets.all(50),
-                                                                                                          onPressed: () {
-                                                                                                            // upload image from pc
-                                                                                                            //_pickImage();
-                            
-                                                                                                          },
-                                                                                                          child: Container(
-                                                                                                            child: Column(
+                                                                                                    scrollDirection: Axis.horizontal,
+                                                                                                    child: Column(
+                                                                                                      children: [
+                                                                                                        Container(
+                                                                                                            margin: const EdgeInsets.all(10),
+                                                                                                            child: Row(
                                                                                                               children: [
-                                                                                                                Image.asset("images/upload (2) 1.png"),
-                                                                                                                TextButton(
-                                                                                                                  child: Text("upload image", style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30)),
-                                                                                                                  onPressed: () {
-                                                                                                                    _pickImage();
-                                                                                                                  },
+                                                                                                                Container(
+                                                                                                                  width: 200,
+                                                                                                                  height: 60,
+                                                                                                                  margin: const EdgeInsets.only(right: 8),
+                                                                                                                  alignment: Alignment.center,
+                                                                                                                  decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                  child: const SharedColorTextCADnormal(text: "Patient name", fontSize: 26),
                                                                                                                 ),
-                                                                                                                const Text(
-                                                                                                                  "choose file",
-                                                                                                                  style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
-                                                                                                                ),
+                                                                                                                Container(
+                                                                                                                  width: 300,
+                                                                                                                  height: 60,
+                                                                                                                  decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                  // child: Text("data"),
+                                                                                                                )
                                                                                                               ],
+                                                                                                            )),
+                                                                                                        Container(
+                                                                                                            margin: const EdgeInsets.all(10),
+                                                                                                            child: Row(
+                                                                                                              children: [
+                                                                                                                Container(
+                                                                                                                  width: 200,
+                                                                                                                  height: 60,
+                                                                                                                  margin: const EdgeInsets.only(right: 8),
+                                                                                                                  alignment: Alignment.center,
+                                                                                                                  decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                  child: const SharedColorTextCADnormal(text: "Doctor name", fontSize: 26),
+                                                                                                                ),
+                                                                                                                Container(
+                                                                                                                  width: 300,
+                                                                                                                  height: 60,
+                                                                                                                  decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                  // child: Text("data"),
+                                                                                                                )
+                                                                                                              ],
+                                                                                                            )),
+                                                                                                        Container(
+                                                                                                            margin: const EdgeInsets.all(10),
+                                                                                                            child: Row(
+                                                                                                              children: [
+                                                                                                                Container(
+                                                                                                                  width: 200,
+                                                                                                                  height: 60,
+                                                                                                                  margin: const EdgeInsets.only(right: 8),
+                                                                                                                  alignment: Alignment.center,
+                                                                                                                  decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                  child: const SharedColorTextCADnormal(text: "Assistant name", fontSize: 26),
+                                                                                                                ),
+                                                                                                                Container(
+                                                                                                                  width: 300,
+                                                                                                                  height: 60,
+                                                                                                                  decoration: BoxDecoration(border: Border.all(color: const Color(0xff0C8A7D)), borderRadius: BorderRadius.circular(10)),
+                                                                                                                  // child: Text("data"),
+                                                                                                                )
+                                                                                                              ],
+                                                                                                            )),
+                                                                                                        Container(
+                                                                                                          height: 280,
+                                                                                                          width: 550,
+                                                                                                          margin: const EdgeInsets.only(bottom: 5),
+                                                                                                          child: MaterialButton(
+                                                                                                            padding: const EdgeInsets.all(50),
+                                                                                                            onPressed: () {
+                                                                                                              // upload image from pc
+                                                                                                              _pickImage();
+                                                                                                            },
+                                                                                                            child: Container(
+                                                                                                              child: _pickedImage == null
+                                                                                                                  ? Column(
+                                                                                                                      children: [
+                                                                                                                        Image.asset("images/upload (2) 1.png"),
+                                                                                                                        const Text("upload image", style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30)),
+                                                                                                                        const Text(
+                                                                                                                          "choose file",
+                                                                                                                          style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
+                                                                                                                        ),
+                                                                                                                      ],
+                                                                                                                    )
+                                                                                                                  : kIsWeb
+                                                                                                                      ? Image.memory(
+                                                                                                                          webImage,
+                                                                                                                          fit: BoxFit.fill,
+                                                                                                                        )
+                                                                                                                      : Image.file(
+                                                                                                                          _pickedImage!,
+                                                                                                                          fit: BoxFit.fill,
+                                                                                                                        ),
                                                                                                             ),
                                                                                                           ),
                                                                                                         ),
-                                                                                                      ),
-                                                                                                      MaterialButton(
-                                                                                                        color: const Color(0xff0C8A7D),
-                                                                                                        textColor: Colors.white,
-                                                                                                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                                                                                                        onPressed: () {},
-                                                                                                        child: const Text(
-                                                                                                          "Save",
-                                                                                                          style: TextStyle(fontSize: 26),
-                                                                                                        ),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                ),
+                                                                                                        MaterialButton(
+                                                                                                          color: const Color(0xff0C8A7D),
+                                                                                                          textColor: Colors.white,
+                                                                                                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                                                                                                          onPressed: () {},
+                                                                                                          child: const Text(
+                                                                                                            "Save",
+                                                                                                            style: TextStyle(fontSize: 26),
+                                                                                                          ),
+                                                                                                        )
+                                                                                                      ],
+                                                                                                    )),
                                                                                               ))
                                                                                         ],
                                                                                       );
@@ -968,45 +1083,1581 @@ class _HistState extends State<patient_profile> {
                                             Row(
                                               children: [
                                                 TestContainer(),
-                                                // Container(
-                                                //     color:
-                                                //         const Color(0xff0C8A7D),
-                                                //     height: 50,
-                                                //     width: 300,
-                                                //     child: MaterialButton(
-                                                //       onPressed: () {
-                                                //         // view test pop up
-                                                //       },
-                                                //       child:
-                                                //           const SharedColorTextWhite(
-                                                //         text: "2 feb 2023",
-                                                //         fontSize: 18,
-                                                //       ),
-                                                //     )),
-                                                Container(
+                                                Expanded(
+                                                  child: Container(
                                                     height: 40,
-                                                    width: 80,
+                                                    width: double.infinity,
                                                     margin:
                                                         const EdgeInsets.only(
                                                             top: 20),
                                                     child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(100),
-                                                        child: MaterialButton(
-                                                          onPressed: () {
-                                                            // add test
-                                                          },
-                                                          child: Row(
-                                                            children: [
-                                                              Image.asset(
-                                                                  "images/plus.png"),
-                                                              const SharedColorTextblack(
-                                                                  text: "Add",
-                                                                  fontSize: 18)
-                                                            ],
-                                                          ),
-                                                        )))
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              100),
+                                                      child: MaterialButton(
+                                                        height: 40,
+                                                        minWidth:
+                                                            double.infinity,
+                                                        onPressed: () {
+                                                          // add test
+                                                          // Navigator.of(context).push(
+                                                          //     MaterialPageRoute(
+                                                          //         builder:
+                                                          //             (context) =>
+                                                          //                 const AddTest()
+                                                          //                 ));
+                                                              showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                    backgroundColor: const Color(0xffFFFFFF),
+                    content: Expanded(
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: SingleChildScrollView(
+                                child: Column(children: [
+                              Container(
+                                alignment: Alignment.centerRight,
+                                child: IconButton(
+                                    icon: const Icon(Icons.clear),
+                                    color: const Color(0xff0C8A7D),
+                                    iconSize: 30,
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    }),
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: 
+                                Column(
+                                  children: [
+                                     Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                            width: 620,
+                            height: 80,
+                            alignment: Alignment.centerRight,
+                            margin: const EdgeInsets.only(left: 60, top: 20),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: Color.fromARGB(255, 91, 189, 179),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 50,
+                                ),
+                                Text("Field",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 29,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 240,
+                                ),
+                                Text(
+                                  "Value",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 29,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                            
+                          ),
+                       
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    
+                    child: const Text("RBC",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child:
+                    Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Normal",
+                      groupValue: groupValue,
+                      onChanged: (value13) {
+                        setState(() {
+                          groupValue = value13!;
+                        });
+                      }),
+                  const Text(
+                    "Normal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "Ubnormal",
+                      groupValue: groupValue,
+                      onChanged: (value13) {
+                        setState(() {
+                          groupValue = value13!;
+                        });
+                      }),
+                  const Text(
+                    "Ubnormal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+        
+                      
+                    ),
+                    child: const Text("PC",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Normal",
+                      groupValue: groupValue1,
+                      onChanged: (value14) {
+                        setState(() {
+                          groupValue1 = value14!;
+                        });
+                      }),
+                  const Text(
+                    "Normal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "Ubnormal",
+                      groupValue: groupValue1,
+                      onChanged: (value14) {
+                        setState(() {
+                          groupValue1 = value14!;
+                        });
+                      }),
+                  const Text(
+                    "Ubnormal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                
+                    ),
+                    child: const Text("PCC",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Present",
+                      groupValue: groupValue4,
+                      onChanged: (value15) {
+                        setState(() {
+                          groupValue4 = value15!;
+                        });
+                      }),
+                  const Text(
+                    "Present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "not present",
+                      groupValue: groupValue4,
+                      onChanged: (value15) {
+                        setState(() {
+                          groupValue4 = value15!;
+                        });
+                      }),
+                  const Text(
+                    "not present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+          
+                    
+                    ),
+                    child: const Text("BA",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child:Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Present",
+                      groupValue: groupValue10,
+                      onChanged: (value16) {
+                        setState(() {
+                          groupValue10 = value16!;
+                        });
+                      }),
+                  const Text(
+                    "Present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "not present",
+                      groupValue: groupValue10,
+                      onChanged: (value16) {
+                        setState(() {
+                          groupValue10 = value16!;
+                        });
+                      }),
+                  const Text(
+                    "not present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+        
+                    
+                    ),
+                    child: const Text("HTN",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+        
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue5,
+                      onChanged: (value17) {
+                        setState(() {
+                          groupValue5 = value17!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue5,
+                      onChanged: (value17) {
+                        setState(() {
+                          groupValue5 = value17!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+    
+                    
+                    ),
+                    child: const Text("DM",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue6,
+                      onChanged: (value18) {
+                        setState(() {
+                          groupValue6 = value18!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue6,
+                      onChanged: (value18) {
+                        setState(() {
+                          groupValue6 = value18!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                    
+                    ),
+                    child: const Text("CAD",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+      
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue7,
+                      onChanged: (value19) {
+                        setState(() {
+                          groupValue7 = value19!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue7,
+                      onChanged: (value19) {
+                        setState(() {
+                          groupValue7 = value19!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                    
+                    ),
+                    child: const Text("PE",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue8,
+                      onChanged: (value20) {
+                        setState(() {
+                          groupValue8 = value20!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue8,
+                      onChanged: (value20) {
+                        setState(() {
+                          groupValue8 = value20!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+                    
+                    ),
+                    child: const Text("ANE",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue9,
+                      onChanged: (value21) {
+                        setState(() {
+                          groupValue9 = value21!.toString();
+                          
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue9,
+                      onChanged: (value21) {
+                        setState(() {
+                          groupValue9 = value21!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                    
+                    ),
+                    child: const Text("APPET",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Good",
+                      groupValue: groupValue3,
+                      onChanged: (value22) {
+                        setState(() {
+                          groupValue3 = value22!;
+                        });
+                      }),
+                  const Text(
+                    "Good",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 42,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "Poor",
+                      groupValue: groupValue3,
+                      onChanged: (value22) {
+                        setState(() {
+                          groupValue3 = value22!;
+                        });
+                      }),
+                  const Text(
+                    "Poor",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              
+                  ),
+                ]),
+                   const SizedBox(height: 10),
+                          Row(children: [
+                  Container(
+                    width: 280,
+              
+                    margin: const EdgeInsets.only(left: 0,top: 2),
+                  
+                    child: const Text("POT",
+                        style: TextStyle(
+                            color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                  
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: 
+                    Form(
+                      key: formstate12,
+                      child: TextFormField(
+                        // controller: dosageformController,
+                        cursorColor: const Color(0xff0C8A7D),
+                        validator: (value12) {
+                          if (value12!.isEmpty) {
+                            return "Required";
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+
+                
+
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                            width: 620,
+                            height: 80,
+                            alignment: Alignment.centerRight,
+                            margin: const EdgeInsets.only(left: 60, top: 20),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: Color.fromARGB(255, 91, 189, 179),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                
+                                SizedBox(
+                                  width: 50,
+                                ),
+                                Text("Field",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 29,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 240,
+                                ),
+                                Text(
+                                  "Value",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 29,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                
+                              ],
+                            ),
+                            
+                          ),
+                          const SizedBox(height: 10),
+                          Row(children: [
+                                    Container(
+                                      width: 280,
+                                      margin: const EdgeInsets.only(
+                                          left: 0, top: 2),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("PEMO",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate1,
+                                        child: TextFormField(
+                                          controller: dosageformController,
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          validator: (value1) {
+                                            if (value1!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("PCV",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate2,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value2) {
+                                            if (value2!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("WBC",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate3,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          controller: genericnameController,
+                                          validator: (value3) {
+                                            if (value3!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                    const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      
+                                      child: const Text("BP",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate4,
+                                        child: TextFormField(
+                                            cursorColor:
+                                                const Color(0xff0C8A7D),
+                                            controller: therapeuticController,
+                                            validator: (value4) {
+                                              if (value4!.isEmpty) {
+                                                return "Required";
+                                              }
+                                              return null;
+                                            },
+                                            decoration: const InputDecoration(
+                                              focusedBorder: InputBorder.none,
+                                              enabledBorder: InputBorder.none,
+                                            )),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      
+                                      child: const Text("BGR",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate5,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value5) {
+                                            if (value5!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                    
+                                      child: const Text("BU",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate6,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          controller: manufacturerController,
+                                          validator: (value6) {
+                                            if (value6!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SC",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate7,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SOD",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate8,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SG",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate9,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("AL",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate10,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SU",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate11,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+
+                                  
+
+                                    ],
+                                  )
+                                ],
+                              ),
+                              const SizedBox(height: 40,),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                 children: [
+                  SizedBox(
+                    width: 200,
+                    child: MaterialButton(
+                          color: const Color(0xff0C8A7D),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: const Text("Save",
+                            style: TextStyle(
+                              color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          if (formstate1.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate2.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate3.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate4.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate5.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate6.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate7.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate8.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate9.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate10.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate11.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate12.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                        }),
+                  ),  const SizedBox(
+                    width: 40,),
+  SizedBox(
+                    width: 200,
+                    child: MaterialButton(
+                        color: const Color(0xff0C8A7D),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: const Text("Check",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          
+                        }),
+                  ),
+
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: MaterialButton(
+                        color: const Color(0xff0C8A7D),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: const Text("Cancel",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        }),
+                  ),
+
+                ]),
+                  const SizedBox(
+                    height: 40,),
+                  Center(
+                    child: Container(
+                      color: const Color.fromARGB(255, 239, 236, 236),
+                      
+                      width: 200,
+                      
+                      child: const Text("",
+                          style: TextStyle(
+                            color:Color(0xff0C8A7D),
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center),
+                    ),
+                  ),
+  const SizedBox(
+                    height: 40,)
+
+                                  ],
+                                )
+                               
+                              )
+                              
+                            ])))));
+              });                                                        },
+                                                        child: Row(
+                                                          children: [
+                                                            Image.asset(
+                                                                "images/plus.png"),
+                                                            const SharedColorTextblack(
+                                                                text: "Add",
+                                                                fontSize: 18)
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
                                               ],
                                             )
                                           ],
@@ -1094,7 +2745,7 @@ class _HistState extends State<patient_profile> {
                                                                                       height: 44,
                                                                                       decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
                                                                                       padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
-                                                                                      child: const Text("Mohamed Nasr",
+                                                                                      child: const Text("Menna Ali",
                                                                                           style: TextStyle(
                                                                                             color: Color(0xff000000),
                                                                                             fontSize: 20,
@@ -1138,7 +2789,7 @@ class _HistState extends State<patient_profile> {
                                                                                       height: 45,
                                                                                       decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
                                                                                       padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
-                                                                                      child: const Text("1234556",
+                                                                                      child: const Text("2009022",
                                                                                           style: TextStyle(
                                                                                             color: Color(0xff000000),
                                                                                             fontSize: 20,
@@ -1184,7 +2835,7 @@ class _HistState extends State<patient_profile> {
                                                                                     height: 45,
                                                                                     decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
                                                                                     padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
-                                                                                    child: const Text("15/05/2024",
+                                                                                    child: const Text("19/4/2024",
                                                                                         style: TextStyle(
                                                                                           color: Color(0xff000000),
                                                                                           fontSize: 20,
@@ -1208,7 +2859,7 @@ class _HistState extends State<patient_profile> {
                                                                                       height: 45,
                                                                                       decoration: BoxDecoration(border: Border.all(style: BorderStyle.solid, color: const Color(0xff096B61))),
                                                                                       padding: const EdgeInsets.only(left: 15, top: 5, bottom: 5),
-                                                                                      child: const Text(".........",
+                                                                                      child: const Text("Yes",
                                                                                           style: TextStyle(
                                                                                             color: Color(0xff000000),
                                                                                             fontSize: 20,
@@ -1361,27 +3012,40 @@ class _HistState extends State<patient_profile> {
                                                                                       padding: const EdgeInsets.all(50),
                                                                                       onPressed: () {
                                                                                         // upload image from pc
+                                                                                        _pickImage();
                                                                                       },
-                                                                                      child: Column(
-                                                                                        children: [
-                                                                                          Image.asset("images/upload (2) 1.png"),
-                                                                                          const Text(
-                                                                                            "upload image",
-                                                                                            style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30),
-                                                                                          ),
-                                                                                          const Text(
-                                                                                            "choose file",
-                                                                                            style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
+                                                                                      child: _pickedImage == null
+                                                                                          ? Column(
+                                                                                              children: [
+                                                                                                Image.asset("images/upload (2) 1.png"),
+                                                                                                const Text(
+                                                                                                  "upload image",
+                                                                                                  style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.bold, fontSize: 30),
+                                                                                                ),
+                                                                                                const Text(
+                                                                                                  "choose file",
+                                                                                                  style: TextStyle(color: Color(0xff8B8989), fontWeight: FontWeight.w500, fontSize: 26),
+                                                                                                ),
+                                                                                              ],
+                                                                                            )
+                                                                                          : kIsWeb
+                                                                                              ? Image.memory(
+                                                                                                  webImage,
+                                                                                                  fit: BoxFit.fill,
+                                                                                                )
+                                                                                              : Image.file(
+                                                                                                  _pickedImage!,
+                                                                                                  fit: BoxFit.fill,
+                                                                                                ),
                                                                                     ),
                                                                                   ),
                                                                                   MaterialButton(
                                                                                     color: const Color(0xff0C8A7D),
                                                                                     textColor: Colors.white,
                                                                                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                                                                                    onPressed: () {},
+                                                                                    onPressed: () {
+                                                                                      Navigator.of(context).pop();
+                                                                                    },
                                                                                     child: const Text(
                                                                                       "Save",
                                                                                       style: TextStyle(fontSize: 26),
@@ -2194,7 +3858,7 @@ Widget ScanDatial(BuildContext context) {
                                             color: const Color(0xff096B61))),
                                     padding: const EdgeInsets.only(
                                         left: 15, top: 5, bottom: 5),
-                                    child: const Text("Mohamed Nasr",
+                                    child: const Text("Menna Ali",
                                         style: TextStyle(
                                           color: Color(0xff000000),
                                           fontSize: 20,
@@ -2254,7 +3918,7 @@ Widget ScanDatial(BuildContext context) {
                                             color: const Color(0xff096B61))),
                                     padding: const EdgeInsets.only(
                                         left: 15, top: 5, bottom: 5),
-                                    child: const Text("1234556",
+                                    child: const Text("2009022",
                                         style: TextStyle(
                                           color: Color(0xff000000),
                                           fontSize: 20,
@@ -2317,7 +3981,7 @@ Widget ScanDatial(BuildContext context) {
                                           color: const Color(0xff096B61))),
                                   padding: const EdgeInsets.only(
                                       left: 15, top: 5, bottom: 5),
-                                  child: const Text("15/05/2024",
+                                  child: const Text("19/4/2024",
                                       style: TextStyle(
                                         color: Color(0xff000000),
                                         fontSize: 20,
@@ -2349,7 +4013,7 @@ Widget ScanDatial(BuildContext context) {
                                             color: const Color(0xff096B61))),
                                     padding: const EdgeInsets.only(
                                         left: 15, top: 5, bottom: 5),
-                                    child: const Text(".........",
+                                    child: const Text("Yes",
                                         style: TextStyle(
                                           color: Color(0xff000000),
                                           fontSize: 20,
@@ -2506,7 +4170,7 @@ class testdatail extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text("Mohamed Nasr",
+                                      child: const Text("Mona Said",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -2566,7 +4230,7 @@ class testdatail extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text("1234556",
+                                      child: const Text("2009023",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -2601,7 +4265,7 @@ class testdatail extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text("Nada Nasr",
+                                      child: const Text("Ali Samy",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -2629,7 +4293,7 @@ class testdatail extends StatelessWidget {
                                             color: const Color(0xff096B61))),
                                     padding: const EdgeInsets.only(
                                         left: 15, top: 5, bottom: 5),
-                                    child: const Text("15/05/2024",
+                                    child: const Text("21/4/2024",
                                         style: TextStyle(
                                           color: Color(0xff000000),
                                           fontSize: 20,
@@ -2661,7 +4325,7 @@ class testdatail extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text(".........",
+                                      child: const Text("Yes",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -2923,7 +4587,7 @@ class TestContainer extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text("Mohamed Nasr",
+                                      child: const Text("Mona Said",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -2983,7 +4647,7 @@ class TestContainer extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text("1234556",
+                                      child: const Text("2009023",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -3018,7 +4682,7 @@ class TestContainer extends StatelessWidget {
                                               color: const Color(0xff096B61))),
                                       padding: const EdgeInsets.only(
                                           left: 15, top: 5, bottom: 5),
-                                      child: const Text("Nada Nasr",
+                                      child: const Text("Ali Samy",
                                           style: TextStyle(
                                             color: Color(0xff000000),
                                             fontSize: 20,
@@ -3046,7 +4710,7 @@ class TestContainer extends StatelessWidget {
                                             color: const Color(0xff096B61))),
                                     padding: const EdgeInsets.only(
                                         left: 15, top: 5, bottom: 5),
-                                    child: const Text("15/05/2024",
+                                    child: const Text("21/4/2024",
                                         style: TextStyle(
                                           color: Color(0xff000000),
                                           fontSize: 20,
@@ -3229,5 +4893,1567 @@ class TestContainer extends StatelessWidget {
             fontSize: 18,
           ),
         ));
+  }
+}
+
+class AddTest extends StatefulWidget {
+  const AddTest({super.key});
+
+  @override
+  State<AddTest> createState() => _AddTestState();
+}
+
+class _AddTestState extends State<AddTest> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: IconButton(
+        color: const Color(0xff0C8A7D),
+        onPressed: () {
+          // Navigate to add test page
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                    backgroundColor: const Color(0xffFFFFFF),
+                    content: Expanded(
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: SingleChildScrollView(
+                                child: Column(children: [
+                              Container(
+                                alignment: Alignment.centerRight,
+                                child: IconButton(
+                                    icon: const Icon(Icons.clear),
+                                    color: const Color(0xff0C8A7D),
+                                    iconSize: 30,
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    }),
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: 
+                                Column(
+                                  children: [
+                                     Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                            width: 620,
+                            height: 80,
+                            alignment: Alignment.centerRight,
+                            margin: const EdgeInsets.only(left: 60, top: 20),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: Color.fromARGB(255, 91, 189, 179),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 50,
+                                ),
+                                Text("Field",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 29,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 240,
+                                ),
+                                Text(
+                                  "Value",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 29,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              ],
+                            ),
+                            
+                          ),
+                       
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    
+                    child: const Text("RBC",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child:
+                    Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Normal",
+                      groupValue: groupValue,
+                      onChanged: (value13) {
+                        setState(() {
+                          groupValue = value13!;
+                        });
+                      }),
+                  const Text(
+                    "Normal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "Ubnormal",
+                      groupValue: groupValue,
+                      onChanged: (value13) {
+                        setState(() {
+                          groupValue = value13!;
+                        });
+                      }),
+                  const Text(
+                    "Ubnormal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+        
+                      
+                    ),
+                    child: const Text("PC",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Normal",
+                      groupValue: groupValue1,
+                      onChanged: (value14) {
+                        setState(() {
+                          groupValue1 = value14!;
+                        });
+                      }),
+                  const Text(
+                    "Normal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "Ubnormal",
+                      groupValue: groupValue1,
+                      onChanged: (value14) {
+                        setState(() {
+                          groupValue1 = value14!;
+                        });
+                      }),
+                  const Text(
+                    "Ubnormal",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                
+                    ),
+                    child: const Text("PCC",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Present",
+                      groupValue: groupValue4,
+                      onChanged: (value15) {
+                        setState(() {
+                          groupValue4 = value15!;
+                        });
+                      }),
+                  const Text(
+                    "Present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "not present",
+                      groupValue: groupValue4,
+                      onChanged: (value15) {
+                        setState(() {
+                          groupValue4 = value15!;
+                        });
+                      }),
+                  const Text(
+                    "not present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+          
+                    
+                    ),
+                    child: const Text("BA",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child:Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Present",
+                      groupValue: groupValue10,
+                      onChanged: (value16) {
+                        setState(() {
+                          groupValue10 = value16!;
+                        });
+                      }),
+                  const Text(
+                    "Present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "not present",
+                      groupValue: groupValue10,
+                      onChanged: (value16) {
+                        setState(() {
+                          groupValue10 = value16!;
+                        });
+                      }),
+                  const Text(
+                    "not present",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+        
+                    
+                    ),
+                    child: const Text("HTN",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+        
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue5,
+                      onChanged: (value17) {
+                        setState(() {
+                          groupValue5 = value17!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue5,
+                      onChanged: (value17) {
+                        setState(() {
+                          groupValue5 = value17!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+    
+                    
+                    ),
+                    child: const Text("DM",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+          
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue6,
+                      onChanged: (value18) {
+                        setState(() {
+                          groupValue6 = value18!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue6,
+                      onChanged: (value18) {
+                        setState(() {
+                          groupValue6 = value18!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                    
+                    ),
+                    child: const Text("CAD",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+      
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue7,
+                      onChanged: (value19) {
+                        setState(() {
+                          groupValue7 = value19!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue7,
+                      onChanged: (value19) {
+                        setState(() {
+                          groupValue7 = value19!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                    
+                    ),
+                    child: const Text("PE",
+                        style: TextStyle(
+                                  color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue8,
+                      onChanged: (value20) {
+                        setState(() {
+                          groupValue8 = value20!;
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue8,
+                      onChanged: (value20) {
+                        setState(() {
+                          groupValue8 = value20!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+                    
+                    ),
+                    child: const Text("ANE",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Yes",
+                      groupValue: groupValue9,
+                      onChanged: (value21) {
+                        setState(() {
+                          groupValue9 = value21!.toString();
+                          
+                        });
+                      }),
+                  const Text(
+                    "Yes",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 56,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "No",
+                      groupValue: groupValue9,
+                      onChanged: (value21) {
+                        setState(() {
+                          groupValue9 = value21!;
+                        });
+                      }),
+                  const Text(
+                    "No",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+                  ),
+                ]),
+                const SizedBox(height: 10),
+                Row(children: [
+                  Container(
+                    width: 280,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(right: 5),
+                    decoration: const BoxDecoration(
+      
+                    
+                    ),
+                    child: const Text("APPET",
+                        style: TextStyle(
+                                color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Row(
+                children: [
+                  Radio(
+                    activeColor:   const Color(0xff0C8A7D),
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                      value: "Good",
+                      groupValue: groupValue3,
+                      onChanged: (value22) {
+                        setState(() {
+                          groupValue3 = value22!;
+                        });
+                      }),
+                  const Text(
+                    "Good",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                const SizedBox(
+                    width: 42,
+                  ),
+                  Radio(
+                    fillColor: const WidgetStatePropertyAll(Color(0xff0C8A7D)),
+                    activeColor:const Color(0xff0C8A7D),
+                      value: "Poor",
+                      groupValue: groupValue3,
+                      onChanged: (value22) {
+                        setState(() {
+                          groupValue3 = value22!;
+                        });
+                      }),
+                  const Text(
+                    "Poor",
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              
+                  ),
+                ]),
+                   const SizedBox(height: 10),
+                          Row(children: [
+                  Container(
+                    width: 280,
+              
+                    margin: const EdgeInsets.only(left: 0,top: 2),
+                  
+                    child: const Text("POT",
+                        style: TextStyle(
+                            color:Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center),
+                  ),
+                  const SizedBox(width: 10),
+                  Container(
+                    height: 53,
+                    width: 290,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                  
+                      border: Border.all(
+                          color: const Color(0xff0C8A7D),
+                          width: 2.0,
+                          style: BorderStyle.solid),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: 
+                    Form(
+                      key: formstate12,
+                      child: TextFormField(
+                        // controller: dosageformController,
+                        cursorColor: const Color(0xff0C8A7D),
+                        validator: (value12) {
+                          if (value12!.isEmpty) {
+                            return "Required";
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+
+                
+
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Container(
+                            width: 620,
+                            height: 80,
+                            alignment: Alignment.centerRight,
+                            margin: const EdgeInsets.only(left: 60, top: 20),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: Color.fromARGB(255, 91, 189, 179),
+                            ),
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                
+                                SizedBox(
+                                  width: 50,
+                                ),
+                                Text("Field",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 29,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 240,
+                                ),
+                                Text(
+                                  "Value",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 29,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                
+                              ],
+                            ),
+                            
+                          ),
+                          const SizedBox(height: 10),
+                          Row(children: [
+                                    Container(
+                                      width: 280,
+                                      margin: const EdgeInsets.only(
+                                          left: 0, top: 2),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("PEMO",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate1,
+                                        child: TextFormField(
+                                          controller: dosageformController,
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          validator: (value1) {
+                                            if (value1!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("PCV",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate2,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value2) {
+                                            if (value2!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("WBC",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate3,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          controller: genericnameController,
+                                          validator: (value3) {
+                                            if (value3!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                    const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      
+                                      child: const Text("BP",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate4,
+                                        child: TextFormField(
+                                            cursorColor:
+                                                const Color(0xff0C8A7D),
+                                            controller: therapeuticController,
+                                            validator: (value4) {
+                                              if (value4!.isEmpty) {
+                                                return "Required";
+                                              }
+                                              return null;
+                                            },
+                                            decoration: const InputDecoration(
+                                              focusedBorder: InputBorder.none,
+                                              enabledBorder: InputBorder.none,
+                                            )),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      
+                                      child: const Text("BGR",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate5,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value5) {
+                                            if (value5!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                    
+                                      child: const Text("BU",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate6,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          controller: manufacturerController,
+                                          validator: (value6) {
+                                            if (value6!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SC",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate7,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SOD",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate8,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SG",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate9,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("AL",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate10,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                                  const SizedBox(height: 10),
+                                  Row(children: [
+                                    Container(
+                                      width: 280,
+                                      padding: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(right: 5),
+                                      decoration: const BoxDecoration(),
+                                      child: const Text("SU",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Container(
+                                      height: 53,
+                                      width: 290,
+                                      padding: const EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: const Color(0xff0C8A7D),
+                                            width: 2.0,
+                                            style: BorderStyle.solid),
+                                        borderRadius: BorderRadius.circular(32),
+                                      ),
+                                      child: Form(
+                                        key: formstate11,
+                                        child: TextFormField(
+                                          cursorColor: const Color(0xff0C8A7D),
+                                          // controller: manufacturerController,
+                                          validator: (value) {
+                                            if (value!.isEmpty) {
+                                              return "Required";
+                                            }
+                                            return null;
+                                          },
+                                          decoration: const InputDecoration(
+                                            focusedBorder: InputBorder.none,
+                                            enabledBorder: InputBorder.none,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+
+
+                                  
+
+                                    ],
+                                  )
+                                ],
+                              ),
+                              const SizedBox(height: 40,),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                 children: [
+                  SizedBox(
+                    width: 200,
+                    child: MaterialButton(
+                          color: const Color(0xff0C8A7D),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: const Text("Save",
+                            style: TextStyle(
+                              color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          if (formstate1.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate2.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate3.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate4.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate5.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate6.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate7.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate8.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate9.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate10.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate11.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                          if (formstate12.currentState!.validate()) {
+                            print("valid");
+                          } else {
+                            print("not valid");
+                          }
+                        }),
+                  ),  const SizedBox(
+                    width: 40,),
+  SizedBox(
+                    width: 200,
+                    child: MaterialButton(
+                        color: const Color(0xff0C8A7D),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: const Text("Check",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          
+                        }),
+                  ),
+
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  SizedBox(
+                    width: 200,
+                    child: MaterialButton(
+                        color: const Color(0xff0C8A7D),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: const Text("Cancel",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 36,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        }),
+                  ),
+
+                ]),
+                  const SizedBox(
+                    height: 40,),
+                  Center(
+                    child: Container(
+                      color: const Color.fromARGB(255, 239, 236, 236),
+                      
+                      width: 200,
+                      
+                      child: const Text("",
+                          style: TextStyle(
+                            color:Color(0xff0C8A7D),
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center),
+                    ),
+                  ),
+  const SizedBox(
+                    height: 40,)
+
+                                  ],
+                                )
+                               
+                              )
+                              
+                            ])))));
+              });
+        },
+        icon: const Icon(Icons.add_circle),
+        iconSize: 80,
+      ),
+    );
   }
 }

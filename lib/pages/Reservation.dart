@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_import, unused_import
 import 'dart:developer';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:doctor_app/pages/first.dart';
@@ -14,7 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class Reservation extends StatefulWidget {
-  const Reservation({Key? key}) : super(key: key);
+  const Reservation({super.key});
 
   @override
   State<Reservation> createState() => _FirstState();
@@ -437,7 +436,7 @@ class _FirstState extends State<Reservation> {
                       ),
                     ]),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Container(
+                      SizedBox(
                         width: 150,
                         child: MaterialButton(
                             color: const Color(0xffFFFFFF),
@@ -474,7 +473,7 @@ class _FirstState extends State<Reservation> {
                       const SizedBox(
                         width: 40,
                       ),
-                      Container(
+                      SizedBox(
                         width: 150,
                         child: MaterialButton(
                             color: const Color(0xffFFFFFF),
@@ -638,7 +637,7 @@ class _FirstState extends State<Reservation> {
                       enableFeedback: true,
                       padding: EdgeInsets.fromLTRB(299, 20, 299, 0),
                       indicatorColor: Color(0xFF0E725B),
-                      mouseCursor: MaterialStateMouseCursor.clickable,
+                      mouseCursor: WidgetStateMouseCursor.clickable,
                       indicator: BoxDecoration(
                           color: Color(0xFF0E725B), border: Border.symmetric()),
                       tabs: const [
@@ -850,12 +849,12 @@ class _FirstState extends State<Reservation> {
                             Container(
                               margin: EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 SizedBox(
@@ -922,12 +921,12 @@ class _FirstState extends State<Reservation> {
                             Container(
                               margin: EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 SizedBox(
@@ -994,12 +993,12 @@ class _FirstState extends State<Reservation> {
                             Container(
                               margin: EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 SizedBox(
@@ -1066,12 +1065,12 @@ class _FirstState extends State<Reservation> {
                             Container(
                               margin: EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 SizedBox(
@@ -1172,7 +1171,7 @@ class _FirstState extends State<Reservation> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Container(
                         alignment: Alignment.centerRight,

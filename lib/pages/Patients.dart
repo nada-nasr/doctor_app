@@ -79,24 +79,24 @@ class _Patients extends State<Patients> {
 
   List<CheckBoxModel> PatientsList = [
     CheckBoxModel(
-        name: "Nada Nasr",
-        pass: "2009001",
+        name: "Menna Ali",
+        pass: "2009022",
         phone: "01015678190",
         action: "action"),
     CheckBoxModel(
-        name: "Ebtehal Ahmed",
-        pass: "2009002",
-        phone: "01015678192",
+        name: "Mona Said",
+        pass: "2009023",
+        phone: "01002958192",
         action: "action"),
     CheckBoxModel(
-        name: "Manar Fawzy",
-        pass: "2009003",
-        phone: "01015678193",
+        name: "Ayat Mohamed",
+        pass: "2009024",
+        phone: "01054972876",
         action: "action"),
     CheckBoxModel(
-        name: "Rahma Anwar",
-        pass: "2009004",
-        phone: "01015678194",
+        name: "Asma Nasr",
+        pass: "2009025",
+        phone: "01008356922",
         action: "action")
   ];
 
@@ -1183,11 +1183,11 @@ class CheckBoxModel {
 
 class MySearchDelegate extends SearchDelegate {
   List suggestions = [
-    "Nada",
-    "Ebtehal",
-    "Manar",
-    "Rahma"
-  ]; //المفروض من الداتابيز
+    "Menna Ali",
+    "Mona Said",
+    "Ayat Mohamed",
+    "Asma Nasr"
+  ]; 
 
   List? filterList;
 

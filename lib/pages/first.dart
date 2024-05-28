@@ -1,11 +1,16 @@
+// ignore_for_file: use_build_context_synchronously, avoid_unnecessary_containers, deprecated_member_use, non_constant_identifier_names, unused_import, unnecessary_import
+
 import 'dart:developer';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:doctor_app/pages/Manage.dart';
+import 'package:doctor_app/pages/Patients.dart';
 import 'package:doctor_app/pages/Reservation.dart';
 import 'package:doctor_app/pages/followup.dart';
 import 'package:doctor_app/pages/home.dart';
+import 'package:doctor_app/pages/lab_tests.dart';
 import 'package:doctor_app/pages/patient_profile.dart';
+import 'package:doctor_app/pages/reports.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -15,7 +20,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class First extends StatefulWidget {
-  const First({Key? key}) : super(key: key);
+  const First({super.key});
 
   @override
   State<First> createState() => _FirstState();
@@ -438,7 +443,7 @@ class _FirstState extends State<First> {
                       ),
                     ]),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Container(
+                      SizedBox(
                         width: 150,
                         child: MaterialButton(
                             color: const Color(0xffFFFFFF),
@@ -475,7 +480,7 @@ class _FirstState extends State<First> {
                       const SizedBox(
                         width: 40,
                       ),
-                      Container(
+                      SizedBox(
                         width: 150,
                         child: MaterialButton(
                             color: const Color(0xffFFFFFF),
@@ -584,19 +589,39 @@ class _FirstState extends State<First> {
                   DrawerListTile(
                       title: "Manage",
                       img: "assets/img/teamwork .png",
-                      press: () {}),
+                      press: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Manage()));
+                      }),
+                  DrawerListTile(
+                      title: "Archive",
+                      img: "assets/img/icon-park-outline_log.png",
+                      press: () {
+                        Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const First()));
+                      }),
+                  
                   DrawerListTile(
                       title: "Patients",
                       img: "assets/img/patient 1.png",
-                      press: () {}),
+                      press: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const Patients()));
+                      }),
                   DrawerListTile(
                       title: "Lab Tests",
                       img: "assets/img/test 1.png",
-                      press: () {}),
+                      press: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const LabTests()));
+                      }),
                   DrawerListTile(
                       title: "Reports",
                       img: "assets/img/report (1) 1.png",
-                      press: () {}),
+                      press: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const Reports()));
+                      }),
                 ],
               ),
             ),
@@ -640,7 +665,7 @@ class _FirstState extends State<First> {
                       enableFeedback: true,
                       padding: EdgeInsets.fromLTRB(299, 20, 299, 0),
                       indicatorColor: Color(0xFF0E725B),
-                      mouseCursor: MaterialStateMouseCursor.clickable,
+                      mouseCursor: WidgetStateMouseCursor.clickable,
                       indicator: BoxDecoration(
                           color: Color(0xFF0E725B), border: Border.symmetric()),
                       tabs: [
@@ -854,12 +879,12 @@ class _FirstState extends State<First> {
                               margin:
                                   const EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: const Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: const BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 const SizedBox(
@@ -927,12 +952,12 @@ class _FirstState extends State<First> {
                               margin:
                                   const EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: const Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: const BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 const SizedBox(
@@ -1000,12 +1025,12 @@ class _FirstState extends State<First> {
                               margin:
                                   const EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: const Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: const BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 const SizedBox(
@@ -1073,12 +1098,12 @@ class _FirstState extends State<First> {
                               margin:
                                   const EdgeInsets.fromLTRB(20, 10, 1000, 10),
                               decoration: BoxDecoration(
-                                  border: new Border.all(
+                                  border: Border.all(
                                       color: const Color(0xff0C8A7D),
                                       width: 2.0,
                                       style: BorderStyle.solid),
-                                  borderRadius: new BorderRadius.horizontal(
-                                    right: new Radius.circular(20.0),
+                                  borderRadius: const BorderRadius.horizontal(
+                                    right: Radius.circular(20.0),
                                   )),
                               child: Column(children: [
                                 const SizedBox(
@@ -1193,7 +1218,7 @@ class _FirstState extends State<First> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Container(
                         alignment: Alignment.centerRight,
